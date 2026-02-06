@@ -1,0 +1,2893 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_170484afd410d558b0825c6c90f78ffc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_170484afd410d558b0825c6c90f78ffc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_170484afd410d558b0825c6c90f78ffc = L.map(
+                "map_170484afd410d558b0825c6c90f78ffc",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7ace4f2858e3a1b0a03f63935cf6051c = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var feature_group_97f6caf07aec4c3a6e70afe7f5eb7e01 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_7f39145bee395e0579c1f3b3aeb920bf = L.markerClusterGroup(
+                {}
+            );
+            feature_group_97f6caf07aec4c3a6e70afe7f5eb7e01.addLayer(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var marker_c80e9176c9752a17f2774026846286c4 = L.marker(
+                [37.3349, -122.009],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_790c2d1a959d00e1dea47114bcbecf05 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_c80e9176c9752a17f2774026846286c4.setIcon(icon_790c2d1a959d00e1dea47114bcbecf05);
+        
+    
+        var popup_c33e9f5a0df204427f0d5e37720e5147 = L.popup({"maxWidth": 350});
+
+        
+            var html_8ea8ddaaf2cf180d463559932e26bb93 = $(`<div id="html_8ea8ddaaf2cf180d463559932e26bb93" style="width: 100.0%; height: 100.0%;">     <b>Apple</b><br>     Cupertino, USA<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> Watch, HealthKit, consumer health<br>     <b>Notes:</b> Consumer health platform & wearables     </div>`)[0];
+            popup_c33e9f5a0df204427f0d5e37720e5147.setContent(html_8ea8ddaaf2cf180d463559932e26bb93);
+        
+
+        marker_c80e9176c9752a17f2774026846286c4.bindPopup(popup_c33e9f5a0df204427f0d5e37720e5147)
+        ;
+
+        
+    
+    
+            var marker_2067a5f5dfc71e56905aba1b9616a578 = L.marker(
+                [37.422, -122.0841],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_795c80460847cd67a412131470a32baa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_2067a5f5dfc71e56905aba1b9616a578.setIcon(icon_795c80460847cd67a412131470a32baa);
+        
+    
+        var popup_328cea1ce7a6feddede6e70d47c74f48 = L.popup({"maxWidth": 350});
+
+        
+            var html_d2d6693ca3a14cbb8f25e115abd8369f = $(`<div id="html_d2d6693ca3a14cbb8f25e115abd8369f" style="width: 100.0%; height: 100.0%;">     <b>Alphabet (Google)</b><br>     Mountain View, USA<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> Fitbit, Pixel Watch, AI, Verily<br>     <b>Notes:</b> Data/AI + consumer wearables     </div>`)[0];
+            popup_328cea1ce7a6feddede6e70d47c74f48.setContent(html_d2d6693ca3a14cbb8f25e115abd8369f);
+        
+
+        marker_2067a5f5dfc71e56905aba1b9616a578.bindPopup(popup_328cea1ce7a6feddede6e70d47c74f48)
+        ;
+
+        
+    
+    
+            var marker_23e6f166f70f646b5cfaca9793b8f448 = L.marker(
+                [42.3601, -71.0589],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_8aaeec1fce349879af1b1cead44fbe81 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_23e6f166f70f646b5cfaca9793b8f448.setIcon(icon_8aaeec1fce349879af1b1cead44fbe81);
+        
+    
+        var popup_ab89a1fcda240c7110b067a16cdf51dd = L.popup({"maxWidth": 350});
+
+        
+            var html_03212d0460fa7f124fbc13c0347baef8 = $(`<div id="html_03212d0460fa7f124fbc13c0347baef8" style="width: 100.0%; height: 100.0%;">     <b>Whoop</b><br>     Boston, USA<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> recovery, HRV<br>     <b>Notes:</b> Subscription fitness band     </div>`)[0];
+            popup_ab89a1fcda240c7110b067a16cdf51dd.setContent(html_03212d0460fa7f124fbc13c0347baef8);
+        
+
+        marker_23e6f166f70f646b5cfaca9793b8f448.bindPopup(popup_ab89a1fcda240c7110b067a16cdf51dd)
+        ;
+
+        
+    
+    
+            var marker_8abcb42eb7719bf0dec9aeb47caf4504 = L.marker(
+                [38.8814, -94.8191],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_e1c0880feb5e5cc01a5ea5b26af98fcd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_8abcb42eb7719bf0dec9aeb47caf4504.setIcon(icon_e1c0880feb5e5cc01a5ea5b26af98fcd);
+        
+    
+        var popup_6bfd244c58e6102de27ff9bc51b4d1ac = L.popup({"maxWidth": 350});
+
+        
+            var html_43fa5dd101424afc7af54aee1b0e923c = $(`<div id="html_43fa5dd101424afc7af54aee1b0e923c" style="width: 100.0%; height: 100.0%;">     <b>Garmin</b><br>     Olathe (KS), USA<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> sports wearables<br>     <b>Notes:</b> Multi-sport wearables     </div>`)[0];
+            popup_6bfd244c58e6102de27ff9bc51b4d1ac.setContent(html_43fa5dd101424afc7af54aee1b0e923c);
+        
+
+        marker_8abcb42eb7719bf0dec9aeb47caf4504.bindPopup(popup_6bfd244c58e6102de27ff9bc51b4d1ac)
+        ;
+
+        
+    
+    
+            var marker_9b27548ccfc4b5bf75d6a2fab3674655 = L.marker(
+                [37.3861, -122.0839],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_b68826e3cb9a4c72e6fa339c05898594 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_9b27548ccfc4b5bf75d6a2fab3674655.setIcon(icon_b68826e3cb9a4c72e6fa339c05898594);
+        
+    
+        var popup_586e01982a73630d9bebf1c871c857ce = L.popup({"maxWidth": 350});
+
+        
+            var html_1eaa13c076699dd8c636c795eb7598e2 = $(`<div id="html_1eaa13c076699dd8c636c795eb7598e2" style="width: 100.0%; height: 100.0%;">     <b>AliveCor</b><br>     Mountain View, USA<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> mobile ECG<br>     <b>Notes:</b> Kardia mobile ECG     </div>`)[0];
+            popup_586e01982a73630d9bebf1c871c857ce.setContent(html_1eaa13c076699dd8c636c795eb7598e2);
+        
+
+        marker_9b27548ccfc4b5bf75d6a2fab3674655.bindPopup(popup_586e01982a73630d9bebf1c871c857ce)
+        ;
+
+        
+    
+    
+            var marker_55c6b4bec8b64e9b42f75745b6df25cb = L.marker(
+                [48.823, 2.27],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_72fedb8b81522522241db0b3f729e068 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_55c6b4bec8b64e9b42f75745b6df25cb.setIcon(icon_72fedb8b81522522241db0b3f729e068);
+        
+    
+        var popup_75673c22a55b3fcb90758433886edd72 = L.popup({"maxWidth": 350});
+
+        
+            var html_a07f01271522da28edaa57c550c2c02e = $(`<div id="html_a07f01271522da28edaa57c550c2c02e" style="width: 100.0%; height: 100.0%;">     <b>Withings</b><br>     Issy-les-Moulineaux (Paris), France<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> scales, BP monitors<br>     <b>Notes:</b> Consumer health devices     </div>`)[0];
+            popup_75673c22a55b3fcb90758433886edd72.setContent(html_a07f01271522da28edaa57c550c2c02e);
+        
+
+        marker_55c6b4bec8b64e9b42f75745b6df25cb.bindPopup(popup_75673c22a55b3fcb90758433886edd72)
+        ;
+
+        
+    
+    
+            var marker_824686e24e27246fbf759b61d48082c2 = L.marker(
+                [60.1699, 24.9384],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_f9752c50de2647de4cb42cae86467eeb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_824686e24e27246fbf759b61d48082c2.setIcon(icon_f9752c50de2647de4cb42cae86467eeb);
+        
+    
+        var popup_3b1fae634253a5dfb71fca0c39d5e04e = L.popup({"maxWidth": 350});
+
+        
+            var html_79a76dbdf9385feb6e77419ae5e4e5de = $(`<div id="html_79a76dbdf9385feb6e77419ae5e4e5de" style="width: 100.0%; height: 100.0%;">     <b>Oura</b><br>     Helsinki, Finland<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> smart ring, sleep<br>     <b>Notes:</b> Ring-based sleep/recovery     </div>`)[0];
+            popup_3b1fae634253a5dfb71fca0c39d5e04e.setContent(html_79a76dbdf9385feb6e77419ae5e4e5de);
+        
+
+        marker_824686e24e27246fbf759b61d48082c2.bindPopup(popup_3b1fae634253a5dfb71fca0c39d5e04e)
+        ;
+
+        
+    
+    
+            var marker_9f05a70cea68b504b70386ca0d53cf8a = L.marker(
+                [64.912, 25.5072],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_12d0183469306e344cb86c8aa1431a0c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_9f05a70cea68b504b70386ca0d53cf8a.setIcon(icon_12d0183469306e344cb86c8aa1431a0c);
+        
+    
+        var popup_4988c845badb0294254a732e0073d023 = L.popup({"maxWidth": 350});
+
+        
+            var html_404f1b3257c54d6a9b485757ca50d088 = $(`<div id="html_404f1b3257c54d6a9b485757ca50d088" style="width: 100.0%; height: 100.0%;">     <b>Polar</b><br>     Kempele, Finland<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> heart rate, training<br>     <b>Notes:</b> Sports wearables     </div>`)[0];
+            popup_4988c845badb0294254a732e0073d023.setContent(html_404f1b3257c54d6a9b485757ca50d088);
+        
+
+        marker_9f05a70cea68b504b70386ca0d53cf8a.bindPopup(popup_4988c845badb0294254a732e0073d023)
+        ;
+
+        
+    
+    
+            var marker_11851b9ecad2a3aa43bf4a5dfdc2392d = L.marker(
+                [22.5431, 114.0579],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_d771a229ae9530082987400e9af1436f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_11851b9ecad2a3aa43bf4a5dfdc2392d.setIcon(icon_d771a229ae9530082987400e9af1436f);
+        
+    
+        var popup_8b294f9e055106f01da1c98c44ce43c5 = L.popup({"maxWidth": 350});
+
+        
+            var html_c3461bfa70d4c9ccc2c01857ecc9d224 = $(`<div id="html_c3461bfa70d4c9ccc2c01857ecc9d224" style="width: 100.0%; height: 100.0%;">     <b>Huawei (Health)</b><br>     Shenzhen, China<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> smartwatches, health<br>     <b>Notes:</b> Consumer wearables     </div>`)[0];
+            popup_8b294f9e055106f01da1c98c44ce43c5.setContent(html_c3461bfa70d4c9ccc2c01857ecc9d224);
+        
+
+        marker_11851b9ecad2a3aa43bf4a5dfdc2392d.bindPopup(popup_8b294f9e055106f01da1c98c44ce43c5)
+        ;
+
+        
+    
+    
+            var marker_7c42d14ad8f11a1326568322cdcbb2fe = L.marker(
+                [39.9042, 116.4074],
+                {}
+            ).addTo(marker_cluster_7f39145bee395e0579c1f3b3aeb920bf);
+        
+    
+            var icon_85343b5ed185829c8a88e2ec26255bda = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_7c42d14ad8f11a1326568322cdcbb2fe.setIcon(icon_85343b5ed185829c8a88e2ec26255bda);
+        
+    
+        var popup_63ad4489bf30dba4e6b5218912b5f875 = L.popup({"maxWidth": 350});
+
+        
+            var html_eda22fa10d18e49c9012d084b57ebafb = $(`<div id="html_eda22fa10d18e49c9012d084b57ebafb" style="width: 100.0%; height: 100.0%;">     <b>Xiaomi (Mi Health)</b><br>     Beijing, China<br>     <b>Category:</b> Wearable/Tech<br>     <b>Tags:</b> fitness bands<br>     <b>Notes:</b> Consumer wearables     </div>`)[0];
+            popup_63ad4489bf30dba4e6b5218912b5f875.setContent(html_eda22fa10d18e49c9012d084b57ebafb);
+        
+
+        marker_7c42d14ad8f11a1326568322cdcbb2fe.bindPopup(popup_63ad4489bf30dba4e6b5218912b5f875)
+        ;
+
+        
+    
+    
+            var feature_group_e58b9b8cea7f2a89ab6501dbecdcee82 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_3554559ad96c45762f239628ca5c144e = L.markerClusterGroup(
+                {}
+            );
+            feature_group_e58b9b8cea7f2a89ab6501dbecdcee82.addLayer(marker_cluster_3554559ad96c45762f239628ca5c144e);
+        
+    
+            var marker_34959bac0041b4efc43bba19eea2a60a = L.marker(
+                [31.2304, 121.4737],
+                {}
+            ).addTo(marker_cluster_3554559ad96c45762f239628ca5c144e);
+        
+    
+            var icon_394aed9d23d9b40ce1948f4e8e328f6a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "darkpurple", "prefix": "fa"}
+            );
+            marker_34959bac0041b4efc43bba19eea2a60a.setIcon(icon_394aed9d23d9b40ce1948f4e8e328f6a);
+        
+    
+        var popup_22ca7f01cfe3ebf57222d071d731c871 = L.popup({"maxWidth": 350});
+
+        
+            var html_4f6f607bb9391ff133a9e12e0b54abba = $(`<div id="html_4f6f607bb9391ff133a9e12e0b54abba" style="width: 100.0%; height: 100.0%;">     <b>WuXi AppTec</b><br>     Shanghai, China<br>     <b>Category:</b> CRO/CDMO<br>     <b>Tags:</b> CRO, CDMO<br>     <b>Notes:</b> R&D and manufacturing services     </div>`)[0];
+            popup_22ca7f01cfe3ebf57222d071d731c871.setContent(html_4f6f607bb9391ff133a9e12e0b54abba);
+        
+
+        marker_34959bac0041b4efc43bba19eea2a60a.bindPopup(popup_22ca7f01cfe3ebf57222d071d731c871)
+        ;
+
+        
+    
+    
+            var feature_group_338fdb6672d66b3f35bfbd35aa347fa1 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_3db1fe960845d99b4f2d5f5a079ab680 = L.markerClusterGroup(
+                {}
+            );
+            feature_group_338fdb6672d66b3f35bfbd35aa347fa1.addLayer(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var marker_d0f3002b1a911a3ac7820159eb9b35f4 = L.marker(
+                [40.756, -73.969],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_48f57741f7dd897c14a5a391d805f13c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d0f3002b1a911a3ac7820159eb9b35f4.setIcon(icon_48f57741f7dd897c14a5a391d805f13c);
+        
+    
+        var popup_939bc45029b06f6a6ecd2d859a98f48c = L.popup({"maxWidth": 350});
+
+        
+            var html_e8f2d7cac0f0b0f93965ef7c26a86468 = $(`<div id="html_e8f2d7cac0f0b0f93965ef7c26a86468" style="width: 100.0%; height: 100.0%;">     <b>Pfizer</b><br>     New York, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> vaccines, pharma<br>     <b>Notes:</b> Global pharma     </div>`)[0];
+            popup_939bc45029b06f6a6ecd2d859a98f48c.setContent(html_e8f2d7cac0f0b0f93965ef7c26a86468);
+        
+
+        marker_d0f3002b1a911a3ac7820159eb9b35f4.bindPopup(popup_939bc45029b06f6a6ecd2d859a98f48c)
+        ;
+
+        
+    
+    
+            var marker_e323a92ad30109ab7bf25a9dd07727c4 = L.marker(
+                [40.607, -74.277],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_97339d38dc6dbffcb04f5263fdaf646d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e323a92ad30109ab7bf25a9dd07727c4.setIcon(icon_97339d38dc6dbffcb04f5263fdaf646d);
+        
+    
+        var popup_ffa6451a3706f1e6d38bf0bc3f214590 = L.popup({"maxWidth": 350});
+
+        
+            var html_3487a8971284dd0c157719c829933623 = $(`<div id="html_3487a8971284dd0c157719c829933623" style="width: 100.0%; height: 100.0%;">     <b>Merck & Co.</b><br>     Rahway, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> oncology, vaccines<br>     <b>Notes:</b> Global pharma (MSD ex-U.S.)     </div>`)[0];
+            popup_ffa6451a3706f1e6d38bf0bc3f214590.setContent(html_3487a8971284dd0c157719c829933623);
+        
+
+        marker_e323a92ad30109ab7bf25a9dd07727c4.bindPopup(popup_ffa6451a3706f1e6d38bf0bc3f214590)
+        ;
+
+        
+    
+    
+            var marker_a184537225a20c8048f1d9fc6e8a2e7f = L.marker(
+                [40.3573, -74.6672],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_6515d2a302ebb1c772b1bb271233180e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a184537225a20c8048f1d9fc6e8a2e7f.setIcon(icon_6515d2a302ebb1c772b1bb271233180e);
+        
+    
+        var popup_90589a46e7ec54c0f2d7bb07617635c7 = L.popup({"maxWidth": 350});
+
+        
+            var html_1c96aa16eaeb60529c2aabd948837024 = $(`<div id="html_1c96aa16eaeb60529c2aabd948837024" style="width: 100.0%; height: 100.0%;">     <b>Bristol Myers Squibb</b><br>     Princeton, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> oncology, immunology<br>     <b>Notes:</b> Global pharma     </div>`)[0];
+            popup_90589a46e7ec54c0f2d7bb07617635c7.setContent(html_1c96aa16eaeb60529c2aabd948837024);
+        
+
+        marker_a184537225a20c8048f1d9fc6e8a2e7f.bindPopup(popup_90589a46e7ec54c0f2d7bb07617635c7)
+        ;
+
+        
+    
+    
+            var marker_52dfe7c44ba51bcb51913d6fc3ad3572 = L.marker(
+                [40.4862, -74.4518],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_5c0d8d0efc58524d038fd40c277defd4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_52dfe7c44ba51bcb51913d6fc3ad3572.setIcon(icon_5c0d8d0efc58524d038fd40c277defd4);
+        
+    
+        var popup_44ff53290fd46d5e82c252cf11cedae8 = L.popup({"maxWidth": 350});
+
+        
+            var html_9decf5b94cc73652487a1d9b1e0b9934 = $(`<div id="html_9decf5b94cc73652487a1d9b1e0b9934" style="width: 100.0%; height: 100.0%;">     <b>Johnson & Johnson (J&J)</b><br>     New Brunswick, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> medtech, pharma<br>     <b>Notes:</b> Diversified health giant     </div>`)[0];
+            popup_44ff53290fd46d5e82c252cf11cedae8.setContent(html_9decf5b94cc73652487a1d9b1e0b9934);
+        
+
+        marker_52dfe7c44ba51bcb51913d6fc3ad3572.bindPopup(popup_44ff53290fd46d5e82c252cf11cedae8)
+        ;
+
+        
+    
+    
+            var marker_a98959e21bc3d4e13bb73be7ce6da360 = L.marker(
+                [34.189, -118.875],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_ebdb0b74b41311c43286f5cbb22d043f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a98959e21bc3d4e13bb73be7ce6da360.setIcon(icon_ebdb0b74b41311c43286f5cbb22d043f);
+        
+    
+        var popup_1f8d7f3e4f7c0f3e3a40876799e4b9c1 = L.popup({"maxWidth": 350});
+
+        
+            var html_1551f78cf7c9b6f67de1c362bb829ab8 = $(`<div id="html_1551f78cf7c9b6f67de1c362bb829ab8" style="width: 100.0%; height: 100.0%;">     <b>Amgen</b><br>     Thousand Oaks, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> biologics<br>     <b>Notes:</b> Large-cap biotech     </div>`)[0];
+            popup_1f8d7f3e4f7c0f3e3a40876799e4b9c1.setContent(html_1551f78cf7c9b6f67de1c362bb829ab8);
+        
+
+        marker_a98959e21bc3d4e13bb73be7ce6da360.bindPopup(popup_1f8d7f3e4f7c0f3e3a40876799e4b9c1)
+        ;
+
+        
+    
+    
+            var marker_48420227335f5ab14a7e2f5cc147cb7f = L.marker(
+                [37.5585, -122.2711],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_9db8fafa4ac1122197cc918a3545bf2a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_48420227335f5ab14a7e2f5cc147cb7f.setIcon(icon_9db8fafa4ac1122197cc918a3545bf2a);
+        
+    
+        var popup_d23c62a325e3b49558af0dd77d1ae5bf = L.popup({"maxWidth": 350});
+
+        
+            var html_15cf9673a8ad49b1955774e470c3e1c0 = $(`<div id="html_15cf9673a8ad49b1955774e470c3e1c0" style="width: 100.0%; height: 100.0%;">     <b>Gilead Sciences</b><br>     Foster City, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> antivirals, oncology<br>     <b>Notes:</b> Large-cap biotech     </div>`)[0];
+            popup_d23c62a325e3b49558af0dd77d1ae5bf.setContent(html_15cf9673a8ad49b1955774e470c3e1c0);
+        
+
+        marker_48420227335f5ab14a7e2f5cc147cb7f.bindPopup(popup_d23c62a325e3b49558af0dd77d1ae5bf)
+        ;
+
+        
+    
+    
+            var marker_c83d9ce005e713a0b4830afbb910e502 = L.marker(
+                [41.0762, -73.843],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_86445353b7321a5cb099148ffc7bc79b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c83d9ce005e713a0b4830afbb910e502.setIcon(icon_86445353b7321a5cb099148ffc7bc79b);
+        
+    
+        var popup_7124584a746102afe3c7adada9560213 = L.popup({"maxWidth": 350});
+
+        
+            var html_f57cee2eacdabd29584dca2a8f7b2f0b = $(`<div id="html_f57cee2eacdabd29584dca2a8f7b2f0b" style="width: 100.0%; height: 100.0%;">     <b>Regeneron</b><br>     Tarrytown, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> antibody, genetics<br>     <b>Notes:</b> Large-cap biotech     </div>`)[0];
+            popup_7124584a746102afe3c7adada9560213.setContent(html_f57cee2eacdabd29584dca2a8f7b2f0b);
+        
+
+        marker_c83d9ce005e713a0b4830afbb910e502.bindPopup(popup_7124584a746102afe3c7adada9560213)
+        ;
+
+        
+    
+    
+            var marker_3aaf917d4d843fee86fec871f872ea7b = L.marker(
+                [42.3626, -71.0843],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_e4f8a46545d22c9cddb4c7bfd91fe8e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3aaf917d4d843fee86fec871f872ea7b.setIcon(icon_e4f8a46545d22c9cddb4c7bfd91fe8e7);
+        
+    
+        var popup_30cf1a6bb089882f44ae04f6dda623be = L.popup({"maxWidth": 350});
+
+        
+            var html_60153dacc68fec849b2416d56d2713e8 = $(`<div id="html_60153dacc68fec849b2416d56d2713e8" style="width: 100.0%; height: 100.0%;">     <b>Biogen</b><br>     Cambridge (MA), USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> neuro<br>     <b>Notes:</b> Neuroscience-focused biotech     </div>`)[0];
+            popup_30cf1a6bb089882f44ae04f6dda623be.setContent(html_60153dacc68fec849b2416d56d2713e8);
+        
+
+        marker_3aaf917d4d843fee86fec871f872ea7b.bindPopup(popup_30cf1a6bb089882f44ae04f6dda623be)
+        ;
+
+        
+    
+    
+            var marker_6c1286fff860e0c6d8db19c34f99705a = L.marker(
+                [42.3626, -71.0843],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_43f1202a192481cf69a4a6790e9bda04 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6c1286fff860e0c6d8db19c34f99705a.setIcon(icon_43f1202a192481cf69a4a6790e9bda04);
+        
+    
+        var popup_f2345496f5cff194f39aece55cded180 = L.popup({"maxWidth": 350});
+
+        
+            var html_59f6a38cdc6066c4657d7071ae98703c = $(`<div id="html_59f6a38cdc6066c4657d7071ae98703c" style="width: 100.0%; height: 100.0%;">     <b>Moderna</b><br>     Cambridge (MA), USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> mRNA<br>     <b>Notes:</b> mRNA therapeutics/vaccines     </div>`)[0];
+            popup_f2345496f5cff194f39aece55cded180.setContent(html_59f6a38cdc6066c4657d7071ae98703c);
+        
+
+        marker_6c1286fff860e0c6d8db19c34f99705a.bindPopup(popup_f2345496f5cff194f39aece55cded180)
+        ;
+
+        
+    
+    
+            var marker_bac531a0cdb9ffabf74b58c3c2179636 = L.marker(
+                [37.657, -122.379],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_427b90647b7f48ef1856617aa20792d5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_bac531a0cdb9ffabf74b58c3c2179636.setIcon(icon_427b90647b7f48ef1856617aa20792d5);
+        
+    
+        var popup_505faafbb0b1868f1ec195dacfdc78a1 = L.popup({"maxWidth": 350});
+
+        
+            var html_b9b8cc208282bd6c7270f6e3a087eee7 = $(`<div id="html_b9b8cc208282bd6c7270f6e3a087eee7" style="width: 100.0%; height: 100.0%;">     <b>Genentech (Roche)</b><br>     South San Francisco, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> oncology, biotech<br>     <b>Notes:</b> Roche’s biotech arm     </div>`)[0];
+            popup_505faafbb0b1868f1ec195dacfdc78a1.setContent(html_b9b8cc208282bd6c7270f6e3a087eee7);
+        
+
+        marker_bac531a0cdb9ffabf74b58c3c2179636.bindPopup(popup_505faafbb0b1868f1ec195dacfdc78a1)
+        ;
+
+        
+    
+    
+            var marker_c38c72999f2cc15cfce1d2b528b126c5 = L.marker(
+                [47.7613, -122.2054],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_a725bb2cf57e81be5cd14b7656f48d62 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c38c72999f2cc15cfce1d2b528b126c5.setIcon(icon_a725bb2cf57e81be5cd14b7656f48d62);
+        
+    
+        var popup_1b051ae364572a45c6c9963db68ae21e = L.popup({"maxWidth": 350});
+
+        
+            var html_1fbf88983be526257008da7e0c569b25 = $(`<div id="html_1fbf88983be526257008da7e0c569b25" style="width: 100.0%; height: 100.0%;">     <b>Seagen</b><br>     Bothell, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> ADC oncology<br>     <b>Notes:</b> Antibody-drug conjugates     </div>`)[0];
+            popup_1b051ae364572a45c6c9963db68ae21e.setContent(html_1fbf88983be526257008da7e0c569b25);
+        
+
+        marker_c38c72999f2cc15cfce1d2b528b126c5.bindPopup(popup_1b051ae364572a45c6c9963db68ae21e)
+        ;
+
+        
+    
+    
+            var marker_533b55dd142f813b6c7a034f1407dfd4 = L.marker(
+                [42.322, -87.869],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_9919cf2ee47481bc3ec7841f7741d901 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_533b55dd142f813b6c7a034f1407dfd4.setIcon(icon_9919cf2ee47481bc3ec7841f7741d901);
+        
+    
+        var popup_53944ab02f8930c42ceec20c91b5893b = L.popup({"maxWidth": 350});
+
+        
+            var html_25712f67900d9e0eecd537ac5467c274 = $(`<div id="html_25712f67900d9e0eecd537ac5467c274" style="width: 100.0%; height: 100.0%;">     <b>AbbVie</b><br>     North Chicago, USA<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> immunology, oncology<br>     <b>Notes:</b> Spun-out from Abbott (pharma)     </div>`)[0];
+            popup_53944ab02f8930c42ceec20c91b5893b.setContent(html_25712f67900d9e0eecd537ac5467c274);
+        
+
+        marker_533b55dd142f813b6c7a034f1407dfd4.bindPopup(popup_53944ab02f8930c42ceec20c91b5893b)
+        ;
+
+        
+    
+    
+            var marker_02ee40cc13ef6770e62ee27791823722 = L.marker(
+                [47.5596, 7.5886],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_6d3751549701276322d1e5b6bd9bcdf0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_02ee40cc13ef6770e62ee27791823722.setIcon(icon_6d3751549701276322d1e5b6bd9bcdf0);
+        
+    
+        var popup_37a98f820705714bd786a2e8c34b8da3 = L.popup({"maxWidth": 350});
+
+        
+            var html_b597f5b7b17bfea6e33e1954d74aa5a6 = $(`<div id="html_b597f5b7b17bfea6e33e1954d74aa5a6" style="width: 100.0%; height: 100.0%;">     <b>Roche</b><br>     Basel, Switzerland<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma, diagnostics<br>     <b>Notes:</b> Global pharma & diagnostics     </div>`)[0];
+            popup_37a98f820705714bd786a2e8c34b8da3.setContent(html_b597f5b7b17bfea6e33e1954d74aa5a6);
+        
+
+        marker_02ee40cc13ef6770e62ee27791823722.bindPopup(popup_37a98f820705714bd786a2e8c34b8da3)
+        ;
+
+        
+    
+    
+            var marker_f98f501f5741435cd6a502d42582cda3 = L.marker(
+                [47.559, 7.5886],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_b7741484618c2f739e741b2d7f76a272 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f98f501f5741435cd6a502d42582cda3.setIcon(icon_b7741484618c2f739e741b2d7f76a272);
+        
+    
+        var popup_b71b05937a1467f18a9dbfc01ed121a6 = L.popup({"maxWidth": 350});
+
+        
+            var html_c0f3837bcaa5efb0c14d8ed373189bea = $(`<div id="html_c0f3837bcaa5efb0c14d8ed373189bea" style="width: 100.0%; height: 100.0%;">     <b>Novartis</b><br>     Basel, Switzerland<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Global pharma leader     </div>`)[0];
+            popup_b71b05937a1467f18a9dbfc01ed121a6.setContent(html_c0f3837bcaa5efb0c14d8ed373189bea);
+        
+
+        marker_f98f501f5741435cd6a502d42582cda3.bindPopup(popup_b71b05937a1467f18a9dbfc01ed121a6)
+        ;
+
+        
+    
+    
+            var marker_aa971fa39eb131de83edbef39e7620e6 = L.marker(
+                [51.033, 6.989],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_0748eb1139025554a714f8cf6b746f62 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_aa971fa39eb131de83edbef39e7620e6.setIcon(icon_0748eb1139025554a714f8cf6b746f62);
+        
+    
+        var popup_4391f5d5ea6f71b884f3a3970055b6f3 = L.popup({"maxWidth": 350});
+
+        
+            var html_92fec681aff9e6cc90736e03d25ed300 = $(`<div id="html_92fec681aff9e6cc90736e03d25ed300" style="width: 100.0%; height: 100.0%;">     <b>Bayer</b><br>     Leverkusen, Germany<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma, crop science<br>     <b>Notes:</b> Pharma & life sciences     </div>`)[0];
+            popup_4391f5d5ea6f71b884f3a3970055b6f3.setContent(html_92fec681aff9e6cc90736e03d25ed300);
+        
+
+        marker_aa971fa39eb131de83edbef39e7620e6.bindPopup(popup_4391f5d5ea6f71b884f3a3970055b6f3)
+        ;
+
+        
+    
+    
+            var marker_7b66ee60531f20b3edad78de23063661 = L.marker(
+                [49.998, 8.271],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_defdb157f95a393c00475ab52803390d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_7b66ee60531f20b3edad78de23063661.setIcon(icon_defdb157f95a393c00475ab52803390d);
+        
+    
+        var popup_7b073068499e5278ccf1a6a3e1d59296 = L.popup({"maxWidth": 350});
+
+        
+            var html_eac80bb67a0533a825e8ec8cf680925b = $(`<div id="html_eac80bb67a0533a825e8ec8cf680925b" style="width: 100.0%; height: 100.0%;">     <b>BioNTech</b><br>     Mainz, Germany<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> mRNA, oncology<br>     <b>Notes:</b> mRNA pioneer     </div>`)[0];
+            popup_7b073068499e5278ccf1a6a3e1d59296.setContent(html_eac80bb67a0533a825e8ec8cf680925b);
+        
+
+        marker_7b66ee60531f20b3edad78de23063661.bindPopup(popup_7b073068499e5278ccf1a6a3e1d59296)
+        ;
+
+        
+    
+    
+            var marker_33d617a6c3c583239767e45e83085107 = L.marker(
+                [48.5216, 9.0576],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_214a6dc38a30e85f3941cbd77806d482 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_33d617a6c3c583239767e45e83085107.setIcon(icon_214a6dc38a30e85f3941cbd77806d482);
+        
+    
+        var popup_d5bd40beb88c85b6e4eeeacfb89f423f = L.popup({"maxWidth": 350});
+
+        
+            var html_be3a2a9f641df4dc1bc338ad9fa8f341 = $(`<div id="html_be3a2a9f641df4dc1bc338ad9fa8f341" style="width: 100.0%; height: 100.0%;">     <b>CureVac</b><br>     Tübingen, Germany<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> mRNA<br>     <b>Notes:</b> mRNA therapeutics     </div>`)[0];
+            popup_d5bd40beb88c85b6e4eeeacfb89f423f.setContent(html_be3a2a9f641df4dc1bc338ad9fa8f341);
+        
+
+        marker_33d617a6c3c583239767e45e83085107.bindPopup(popup_d5bd40beb88c85b6e4eeeacfb89f423f)
+        ;
+
+        
+    
+    
+            var marker_cf08498e537c61076abc2d18b80bf84e = L.marker(
+                [49.8728, 8.6512],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_de20abd753637f60d3368f8ce52c06b4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_cf08498e537c61076abc2d18b80bf84e.setIcon(icon_de20abd753637f60d3368f8ce52c06b4);
+        
+    
+        var popup_e4b7c349018d827cddeb9df8e7eb035f = L.popup({"maxWidth": 350});
+
+        
+            var html_fa88e4b463395923c3227b9cc6d18abd = $(`<div id="html_fa88e4b463395923c3227b9cc6d18abd" style="width: 100.0%; height: 100.0%;">     <b>Merck KGaA</b><br>     Darmstadt, Germany<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma, materials<br>     <b>Notes:</b> Life science & pharma     </div>`)[0];
+            popup_e4b7c349018d827cddeb9df8e7eb035f.setContent(html_fa88e4b463395923c3227b9cc6d18abd);
+        
+
+        marker_cf08498e537c61076abc2d18b80bf84e.bindPopup(popup_e4b7c349018d827cddeb9df8e7eb035f)
+        ;
+
+        
+    
+    
+            var marker_099a99e4a0f420aca707ca692d5c619d = L.marker(
+                [52.2053, 0.1218],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_436db306e81e6355474fa3f62e17f913 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_099a99e4a0f420aca707ca692d5c619d.setIcon(icon_436db306e81e6355474fa3f62e17f913);
+        
+    
+        var popup_38820220799864ad8ee57afb20c3eb82 = L.popup({"maxWidth": 350});
+
+        
+            var html_c048c432842b3a11c159950354261415 = $(`<div id="html_c048c432842b3a11c159950354261415" style="width: 100.0%; height: 100.0%;">     <b>AstraZeneca</b><br>     Cambridge, UK<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Global pharma (R&D campus)     </div>`)[0];
+            popup_38820220799864ad8ee57afb20c3eb82.setContent(html_c048c432842b3a11c159950354261415);
+        
+
+        marker_099a99e4a0f420aca707ca692d5c619d.bindPopup(popup_38820220799864ad8ee57afb20c3eb82)
+        ;
+
+        
+    
+    
+            var marker_3a2fd342c0ccd1f99d77d4876a2f0ee6 = L.marker(
+                [51.4861, -0.3151],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_9b8291ed3f16962bed4dc6320aa9a537 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3a2fd342c0ccd1f99d77d4876a2f0ee6.setIcon(icon_9b8291ed3f16962bed4dc6320aa9a537);
+        
+    
+        var popup_3c3789005b4bbb9a47b36bdf391c9a16 = L.popup({"maxWidth": 350});
+
+        
+            var html_ab19bc8932f5f54c9f119b9342084688 = $(`<div id="html_ab19bc8932f5f54c9f119b9342084688" style="width: 100.0%; height: 100.0%;">     <b>GSK</b><br>     Brentford (London), UK<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma, vaccines<br>     <b>Notes:</b> Global pharma     </div>`)[0];
+            popup_3c3789005b4bbb9a47b36bdf391c9a16.setContent(html_ab19bc8932f5f54c9f119b9342084688);
+        
+
+        marker_3a2fd342c0ccd1f99d77d4876a2f0ee6.bindPopup(popup_3c3789005b4bbb9a47b36bdf391c9a16)
+        ;
+
+        
+    
+    
+            var marker_1874d04e398f67775707465e621ca874 = L.marker(
+                [48.8566, 2.3522],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_8bc4161b09217b4558731f4792e40b05 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1874d04e398f67775707465e621ca874.setIcon(icon_8bc4161b09217b4558731f4792e40b05);
+        
+    
+        var popup_8d343aa56ca232f876705162bad689be = L.popup({"maxWidth": 350});
+
+        
+            var html_e887887536077219dacd1dbd4ace650a = $(`<div id="html_e887887536077219dacd1dbd4ace650a" style="width: 100.0%; height: 100.0%;">     <b>Sanofi</b><br>     Paris, France<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma, vaccines<br>     <b>Notes:</b> Global pharma     </div>`)[0];
+            popup_8d343aa56ca232f876705162bad689be.setContent(html_e887887536077219dacd1dbd4ace650a);
+        
+
+        marker_1874d04e398f67775707465e621ca874.bindPopup(popup_8d343aa56ca232f876705162bad689be)
+        ;
+
+        
+    
+    
+            var marker_ca2c930a9fa5a93615de38437ffafb9c = L.marker(
+                [41.3874, 2.1686],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_d9e95eda32e100e39f476469b0dce582 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ca2c930a9fa5a93615de38437ffafb9c.setIcon(icon_d9e95eda32e100e39f476469b0dce582);
+        
+    
+        var popup_3e365610a1d65cac0d45479e991c8364 = L.popup({"maxWidth": 350});
+
+        
+            var html_0123de0a56419ae827ed2b67d1da183b = $(`<div id="html_0123de0a56419ae827ed2b67d1da183b" style="width: 100.0%; height: 100.0%;">     <b>Grifols</b><br>     Barcelona, Spain<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> plasma, biologics<br>     <b>Notes:</b> Plasma-derived medicines     </div>`)[0];
+            popup_3e365610a1d65cac0d45479e991c8364.setContent(html_0123de0a56419ae827ed2b67d1da183b);
+        
+
+        marker_ca2c930a9fa5a93615de38437ffafb9c.bindPopup(popup_3e365610a1d65cac0d45479e991c8364)
+        ;
+
+        
+    
+    
+            var marker_b231ddd8afda9dda7dc46bdb93e9ec25 = L.marker(
+                [55.7558, 12.4734],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_21e66c1abfd73e06ac60b938efa153b3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b231ddd8afda9dda7dc46bdb93e9ec25.setIcon(icon_21e66c1abfd73e06ac60b938efa153b3);
+        
+    
+        var popup_9233e03e81fc2f7b461ca1109abdd086 = L.popup({"maxWidth": 350});
+
+        
+            var html_22ad4873de817c76bd7529fab7483bd9 = $(`<div id="html_22ad4873de817c76bd7529fab7483bd9" style="width: 100.0%; height: 100.0%;">     <b>Novo Nordisk</b><br>     Bagsværd (Copenhagen), Denmark<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> diabetes, GLP-1<br>     <b>Notes:</b> Diabetes & obesity leader     </div>`)[0];
+            popup_9233e03e81fc2f7b461ca1109abdd086.setContent(html_22ad4873de817c76bd7529fab7483bd9);
+        
+
+        marker_b231ddd8afda9dda7dc46bdb93e9ec25.bindPopup(popup_9233e03e81fc2f7b461ca1109abdd086)
+        ;
+
+        
+    
+    
+            var marker_79daefa7d40c5c44d67da0c2947711f2 = L.marker(
+                [55.6761, 12.5683],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_2e30279b86a84c52bdc2a6d8f3358eea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_79daefa7d40c5c44d67da0c2947711f2.setIcon(icon_2e30279b86a84c52bdc2a6d8f3358eea);
+        
+    
+        var popup_c80aa1c8da5d879b3748b8b97b21bc16 = L.popup({"maxWidth": 350});
+
+        
+            var html_2c953b890647f324869ef5a434e8c57f = $(`<div id="html_2c953b890647f324869ef5a434e8c57f" style="width: 100.0%; height: 100.0%;">     <b>Lundbeck</b><br>     Copenhagen, Denmark<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> CNS<br>     <b>Notes:</b> Neuroscience pharma     </div>`)[0];
+            popup_c80aa1c8da5d879b3748b8b97b21bc16.setContent(html_2c953b890647f324869ef5a434e8c57f);
+        
+
+        marker_79daefa7d40c5c44d67da0c2947711f2.bindPopup(popup_c80aa1c8da5d879b3748b8b97b21bc16)
+        ;
+
+        
+    
+    
+            var marker_37aed6ec7302174648d1f92b50c1998d = L.marker(
+                [55.6761, 12.5683],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_a743ad03b002d5f66fbbb0e3066e6e6a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_37aed6ec7302174648d1f92b50c1998d.setIcon(icon_a743ad03b002d5f66fbbb0e3066e6e6a);
+        
+    
+        var popup_4ece364475f15b087b71c6a68f56edbe = L.popup({"maxWidth": 350});
+
+        
+            var html_17b8521ef90a6c063c1ae35a2bbd9e45 = $(`<div id="html_17b8521ef90a6c063c1ae35a2bbd9e45" style="width: 100.0%; height: 100.0%;">     <b>Genmab</b><br>     Copenhagen, Denmark<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> antibody<br>     <b>Notes:</b> Biotech (antibodies)     </div>`)[0];
+            popup_4ece364475f15b087b71c6a68f56edbe.setContent(html_17b8521ef90a6c063c1ae35a2bbd9e45);
+        
+
+        marker_37aed6ec7302174648d1f92b50c1998d.bindPopup(popup_4ece364475f15b087b71c6a68f56edbe)
+        ;
+
+        
+    
+    
+            var marker_bddce9f0ebe18f6f8471bfc1c8909d07 = L.marker(
+                [37.391, 126.644],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_e0be0af0d7abcd0d9a8ab1ed4f0a5892 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_bddce9f0ebe18f6f8471bfc1c8909d07.setIcon(icon_e0be0af0d7abcd0d9a8ab1ed4f0a5892);
+        
+    
+        var popup_cfd0137ef356ac1ecde77551efe1f379 = L.popup({"maxWidth": 350});
+
+        
+            var html_b05871642c5cfc342631507137f92c68 = $(`<div id="html_b05871642c5cfc342631507137f92c68" style="width: 100.0%; height: 100.0%;">     <b>Celltrion</b><br>     Incheon (Songdo), Korea<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> biosimilars, biologics<br>     <b>Notes:</b> Biosimilars & biologics     </div>`)[0];
+            popup_cfd0137ef356ac1ecde77551efe1f379.setContent(html_b05871642c5cfc342631507137f92c68);
+        
+
+        marker_bddce9f0ebe18f6f8471bfc1c8909d07.bindPopup(popup_cfd0137ef356ac1ecde77551efe1f379)
+        ;
+
+        
+    
+    
+            var marker_cea6e4a35747d60c145e5d2cee344604 = L.marker(
+                [37.42, 127.1265],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_dd08ff5971a1044b704b18b724a3d944 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_cea6e4a35747d60c145e5d2cee344604.setIcon(icon_dd08ff5971a1044b704b18b724a3d944);
+        
+    
+        var popup_67c7ab056dfc078b7ca5a441829dfa62 = L.popup({"maxWidth": 350});
+
+        
+            var html_fa773d3bac8b7801ca117970507771a3 = $(`<div id="html_fa773d3bac8b7801ca117970507771a3" style="width: 100.0%; height: 100.0%;">     <b>SK Biopharmaceuticals</b><br>     Seongnam, Korea<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> CNS<br>     <b>Notes:</b> CNS therapeutics     </div>`)[0];
+            popup_67c7ab056dfc078b7ca5a441829dfa62.setContent(html_fa773d3bac8b7801ca117970507771a3);
+        
+
+        marker_cea6e4a35747d60c145e5d2cee344604.bindPopup(popup_67c7ab056dfc078b7ca5a441829dfa62)
+        ;
+
+        
+    
+    
+            var marker_54f6b9076d7d2dee46812a921c7eb208 = L.marker(
+                [37.199, 127.0286],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_a34b53e7e299a24a734147dca7654ebf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_54f6b9076d7d2dee46812a921c7eb208.setIcon(icon_a34b53e7e299a24a734147dca7654ebf);
+        
+    
+        var popup_746805bfc9cd67ed7bc099b6cd17f15f = L.popup({"maxWidth": 350});
+
+        
+            var html_3766bc121d78a1056d90c965c99ecba8 = $(`<div id="html_3766bc121d78a1056d90c965c99ecba8" style="width: 100.0%; height: 100.0%;">     <b>Hanmi Pharm</b><br>     Hwaseong, Korea<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Innovation-focused pharma     </div>`)[0];
+            popup_746805bfc9cd67ed7bc099b6cd17f15f.setContent(html_3766bc121d78a1056d90c965c99ecba8);
+        
+
+        marker_54f6b9076d7d2dee46812a921c7eb208.bindPopup(popup_746805bfc9cd67ed7bc099b6cd17f15f)
+        ;
+
+        
+    
+    
+            var marker_4b0032c9f85c99dbb3518dbb3fa2a479 = L.marker(
+                [37.241, 127.178],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_bf9f2efd7133f40795105616564d5adf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4b0032c9f85c99dbb3518dbb3fa2a479.setIcon(icon_bf9f2efd7133f40795105616564d5adf);
+        
+    
+        var popup_c784ef260eb141c2a66275153242fccd = L.popup({"maxWidth": 350});
+
+        
+            var html_94ee991529629b12bd33216b1a260339 = $(`<div id="html_94ee991529629b12bd33216b1a260339" style="width: 100.0%; height: 100.0%;">     <b>GC Pharma</b><br>     Yongin, Korea<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> plasma, vaccines<br>     <b>Notes:</b> Plasma products & vaccines     </div>`)[0];
+            popup_c784ef260eb141c2a66275153242fccd.setContent(html_94ee991529629b12bd33216b1a260339);
+        
+
+        marker_4b0032c9f85c99dbb3518dbb3fa2a479.bindPopup(popup_c784ef260eb141c2a66275153242fccd)
+        ;
+
+        
+    
+    
+            var marker_9db460316eae314533eec0589a2678a9 = L.marker(
+                [37.5665, 126.978],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_d9a4a05d06e82e50ae3388647a02feff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_9db460316eae314533eec0589a2678a9.setIcon(icon_d9a4a05d06e82e50ae3388647a02feff);
+        
+    
+        var popup_d23827bcb5252cace26df700bca36b77 = L.popup({"maxWidth": 350});
+
+        
+            var html_1b3b9b200abb736cc8c6fb40bde3f98f = $(`<div id="html_1b3b9b200abb736cc8c6fb40bde3f98f" style="width: 100.0%; height: 100.0%;">     <b>LG Chem (Life Sciences)</b><br>     Seoul, Korea<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> vaccines, oncology<br>     <b>Notes:</b> Life-science division     </div>`)[0];
+            popup_d23827bcb5252cace26df700bca36b77.setContent(html_1b3b9b200abb736cc8c6fb40bde3f98f);
+        
+
+        marker_9db460316eae314533eec0589a2678a9.bindPopup(popup_d23827bcb5252cace26df700bca36b77)
+        ;
+
+        
+    
+    
+            var marker_f1760d5e017f77722fe2d462772b6bf3 = L.marker(
+                [37.5665, 126.978],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_1e778692b73628b3047a1f361fc5bac4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f1760d5e017f77722fe2d462772b6bf3.setIcon(icon_1e778692b73628b3047a1f361fc5bac4);
+        
+    
+        var popup_0212b3b6e7c52d43d31479046c9a59bd = L.popup({"maxWidth": 350});
+
+        
+            var html_ceb80863c8b6a289afb3d4c41e34e9b1 = $(`<div id="html_ceb80863c8b6a289afb3d4c41e34e9b1" style="width: 100.0%; height: 100.0%;">     <b>Yuhan</b><br>     Seoul, Korea<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Top Korean pharma     </div>`)[0];
+            popup_0212b3b6e7c52d43d31479046c9a59bd.setContent(html_ceb80863c8b6a289afb3d4c41e34e9b1);
+        
+
+        marker_f1760d5e017f77722fe2d462772b6bf3.bindPopup(popup_0212b3b6e7c52d43d31479046c9a59bd)
+        ;
+
+        
+    
+    
+            var marker_42233f4da3c276d767628fff549e1395 = L.marker(
+                [37.5665, 126.978],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_d3cf28112444800e71a54d24d5f00ef0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_42233f4da3c276d767628fff549e1395.setIcon(icon_d3cf28112444800e71a54d24d5f00ef0);
+        
+    
+        var popup_8f0025b3b136885bef58956261f5ebce = L.popup({"maxWidth": 350});
+
+        
+            var html_6db13ebd56943874cb88c10a760df149 = $(`<div id="html_6db13ebd56943874cb88c10a760df149" style="width: 100.0%; height: 100.0%;">     <b>Daewoong</b><br>     Seoul, Korea<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Pharma     </div>`)[0];
+            popup_8f0025b3b136885bef58956261f5ebce.setContent(html_6db13ebd56943874cb88c10a760df149);
+        
+
+        marker_42233f4da3c276d767628fff549e1395.bindPopup(popup_8f0025b3b136885bef58956261f5ebce)
+        ;
+
+        
+    
+    
+            var marker_b6d708762dbee2da9a7e6162b2587727 = L.marker(
+                [35.6895, 139.6917],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_ebf10fa014ab49c26b9de166c3511d65 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b6d708762dbee2da9a7e6162b2587727.setIcon(icon_ebf10fa014ab49c26b9de166c3511d65);
+        
+    
+        var popup_00e907592993b5a22019b7e7c9f9432b = L.popup({"maxWidth": 350});
+
+        
+            var html_56b990e45eaafbabdad7276c8ce3ebda = $(`<div id="html_56b990e45eaafbabdad7276c8ce3ebda" style="width: 100.0%; height: 100.0%;">     <b>Takeda</b><br>     Tokyo, Japan<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> global pharma<br>     <b>Notes:</b> Japan’s largest pharma     </div>`)[0];
+            popup_00e907592993b5a22019b7e7c9f9432b.setContent(html_56b990e45eaafbabdad7276c8ce3ebda);
+        
+
+        marker_b6d708762dbee2da9a7e6162b2587727.bindPopup(popup_00e907592993b5a22019b7e7c9f9432b)
+        ;
+
+        
+    
+    
+            var marker_72f2bb04f3522531ce13636b10c2cbe7 = L.marker(
+                [35.6895, 139.6917],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_13a8c8fd549bf088de3633232704305b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_72f2bb04f3522531ce13636b10c2cbe7.setIcon(icon_13a8c8fd549bf088de3633232704305b);
+        
+    
+        var popup_396897cef1f9ca114b5e9ea1448efc39 = L.popup({"maxWidth": 350});
+
+        
+            var html_c50607ae548f5dd1d152de1874ad655f = $(`<div id="html_c50607ae548f5dd1d152de1874ad655f" style="width: 100.0%; height: 100.0%;">     <b>Astellas</b><br>     Tokyo, Japan<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Global pharma     </div>`)[0];
+            popup_396897cef1f9ca114b5e9ea1448efc39.setContent(html_c50607ae548f5dd1d152de1874ad655f);
+        
+
+        marker_72f2bb04f3522531ce13636b10c2cbe7.bindPopup(popup_396897cef1f9ca114b5e9ea1448efc39)
+        ;
+
+        
+    
+    
+            var marker_b5a5e28dc472cb149489ab642a2d730e = L.marker(
+                [35.6895, 139.6917],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_a3cfcbe3e664ffaad9722b63fb74e552 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b5a5e28dc472cb149489ab642a2d730e.setIcon(icon_a3cfcbe3e664ffaad9722b63fb74e552);
+        
+    
+        var popup_061162c9c217c1b7643587a25cedbae0 = L.popup({"maxWidth": 350});
+
+        
+            var html_a0714c922d222ddb6c62f810706da3d0 = $(`<div id="html_a0714c922d222ddb6c62f810706da3d0" style="width: 100.0%; height: 100.0%;">     <b>Daiichi Sankyo</b><br>     Tokyo, Japan<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> oncology (ADC)<br>     <b>Notes:</b> Pharma (oncology)     </div>`)[0];
+            popup_061162c9c217c1b7643587a25cedbae0.setContent(html_a0714c922d222ddb6c62f810706da3d0);
+        
+
+        marker_b5a5e28dc472cb149489ab642a2d730e.bindPopup(popup_061162c9c217c1b7643587a25cedbae0)
+        ;
+
+        
+    
+    
+            var marker_6bf1cfcccbb6da10e1cf171b10aaf7ba = L.marker(
+                [35.6895, 139.6917],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_a140b591f2ef418a36090d7db78ca60a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6bf1cfcccbb6da10e1cf171b10aaf7ba.setIcon(icon_a140b591f2ef418a36090d7db78ca60a);
+        
+    
+        var popup_391e43dffd3fdb0609f6f8a5b42dc917 = L.popup({"maxWidth": 350});
+
+        
+            var html_4cc81b2c5aadd0c94204a7d8ac7e180b = $(`<div id="html_4cc81b2c5aadd0c94204a7d8ac7e180b" style="width: 100.0%; height: 100.0%;">     <b>Eisai</b><br>     Tokyo, Japan<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> neuro, oncology<br>     <b>Notes:</b> Pharma     </div>`)[0];
+            popup_391e43dffd3fdb0609f6f8a5b42dc917.setContent(html_4cc81b2c5aadd0c94204a7d8ac7e180b);
+        
+
+        marker_6bf1cfcccbb6da10e1cf171b10aaf7ba.bindPopup(popup_391e43dffd3fdb0609f6f8a5b42dc917)
+        ;
+
+        
+    
+    
+            var marker_6173075f1a4d8e7adf2aebf4d6d08946 = L.marker(
+                [39.9042, 116.4074],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_1713e6e468f63a64bf679cf6219a8c00 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6173075f1a4d8e7adf2aebf4d6d08946.setIcon(icon_1713e6e468f63a64bf679cf6219a8c00);
+        
+    
+        var popup_93a7e15d9607adc7452ce6ebb17c3b65 = L.popup({"maxWidth": 350});
+
+        
+            var html_8abc5bf16401114c4a52761128aa54d8 = $(`<div id="html_8abc5bf16401114c4a52761128aa54d8" style="width: 100.0%; height: 100.0%;">     <b>BeiGene</b><br>     Beijing, China<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> oncology<br>     <b>Notes:</b> Global biotech     </div>`)[0];
+            popup_93a7e15d9607adc7452ce6ebb17c3b65.setContent(html_8abc5bf16401114c4a52761128aa54d8);
+        
+
+        marker_6173075f1a4d8e7adf2aebf4d6d08946.bindPopup(popup_93a7e15d9607adc7452ce6ebb17c3b65)
+        ;
+
+        
+    
+    
+            var marker_cf6ab4069e8a4d137fedbe021f45937d = L.marker(
+                [39.1252, 117.1902],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_2a651d591ddc2c952422bc491f7301a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_cf6ab4069e8a4d137fedbe021f45937d.setIcon(icon_2a651d591ddc2c952422bc491f7301a3);
+        
+    
+        var popup_36ff637f2da2d6abdaa7f7bedb017565 = L.popup({"maxWidth": 350});
+
+        
+            var html_c32c3c4616a6e472f95bddc7ca3581d1 = $(`<div id="html_c32c3c4616a6e472f95bddc7ca3581d1" style="width: 100.0%; height: 100.0%;">     <b>CanSino Biologics</b><br>     Tianjin, China<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> vaccines<br>     <b>Notes:</b> Vaccines     </div>`)[0];
+            popup_36ff637f2da2d6abdaa7f7bedb017565.setContent(html_c32c3c4616a6e472f95bddc7ca3581d1);
+        
+
+        marker_cf6ab4069e8a4d137fedbe021f45937d.bindPopup(popup_36ff637f2da2d6abdaa7f7bedb017565)
+        ;
+
+        
+    
+    
+            var marker_fca314bc3afb47f145da76062d327ea4 = L.marker(
+                [31.2304, 121.4737],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_0aff1ae7f2567c02f2abae1072f149b7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fca314bc3afb47f145da76062d327ea4.setIcon(icon_0aff1ae7f2567c02f2abae1072f149b7);
+        
+    
+        var popup_1ab0909382b932336db3a33afdbabe92 = L.popup({"maxWidth": 350});
+
+        
+            var html_de47793d0e48172086e5e50c6c3ccd62 = $(`<div id="html_de47793d0e48172086e5e50c6c3ccd62" style="width: 100.0%; height: 100.0%;">     <b>Zai Lab</b><br>     Shanghai, China<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> oncology<br>     <b>Notes:</b> Biotech (licensing)     </div>`)[0];
+            popup_1ab0909382b932336db3a33afdbabe92.setContent(html_de47793d0e48172086e5e50c6c3ccd62);
+        
+
+        marker_fca314bc3afb47f145da76062d327ea4.bindPopup(popup_1ab0909382b932336db3a33afdbabe92)
+        ;
+
+        
+    
+    
+            var marker_95d475466365087eeb1eb899a4ff9a78 = L.marker(
+                [31.2989, 120.5853],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_64220514e7dd37f7c2aa488e083f2cee = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_95d475466365087eeb1eb899a4ff9a78.setIcon(icon_64220514e7dd37f7c2aa488e083f2cee);
+        
+    
+        var popup_5c4a050c2cd03f0cf069ef7fd8bace15 = L.popup({"maxWidth": 350});
+
+        
+            var html_adac79ba7b225594fccf58258794e970 = $(`<div id="html_adac79ba7b225594fccf58258794e970" style="width: 100.0%; height: 100.0%;">     <b>Innovent Biologics</b><br>     Suzhou, China<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> biologics<br>     <b>Notes:</b> Biologics     </div>`)[0];
+            popup_5c4a050c2cd03f0cf069ef7fd8bace15.setContent(html_adac79ba7b225594fccf58258794e970);
+        
+
+        marker_95d475466365087eeb1eb899a4ff9a78.bindPopup(popup_5c4a050c2cd03f0cf069ef7fd8bace15)
+        ;
+
+        
+    
+    
+            var marker_2854fe6930ff683f12fe2d03edbd9ad5 = L.marker(
+                [32.0871, 34.8853],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_c00038188fc762921bd0ec27f837576c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2854fe6930ff683f12fe2d03edbd9ad5.setIcon(icon_c00038188fc762921bd0ec27f837576c);
+        
+    
+        var popup_b64836f302035a6c6d42505c08b828b1 = L.popup({"maxWidth": 350});
+
+        
+            var html_8643554c02c6fd35cc78384c1c80b7df = $(`<div id="html_8643554c02c6fd35cc78384c1c80b7df" style="width: 100.0%; height: 100.0%;">     <b>Teva</b><br>     Petah Tikva, Israel<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> generics, specialty<br>     <b>Notes:</b> Global generics leader     </div>`)[0];
+            popup_b64836f302035a6c6d42505c08b828b1.setContent(html_8643554c02c6fd35cc78384c1c80b7df);
+        
+
+        marker_2854fe6930ff683f12fe2d03edbd9ad5.bindPopup(popup_b64836f302035a6c6d42505c08b828b1)
+        ;
+
+        
+    
+    
+            var marker_b81c9e69d752f8635dca55ac61daee1f = L.marker(
+                [12.9716, 77.5946],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_4bbfbb4d5107e86820f3fc8cae791d57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b81c9e69d752f8635dca55ac61daee1f.setIcon(icon_4bbfbb4d5107e86820f3fc8cae791d57);
+        
+    
+        var popup_2f9f8bda6963da7293646921e0614e74 = L.popup({"maxWidth": 350});
+
+        
+            var html_ecd8f2c681328126c9e29ac38698497d = $(`<div id="html_ecd8f2c681328126c9e29ac38698497d" style="width: 100.0%; height: 100.0%;">     <b>Biocon</b><br>     Bengaluru, India<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> biosimilars<br>     <b>Notes:</b> Biopharma leader     </div>`)[0];
+            popup_2f9f8bda6963da7293646921e0614e74.setContent(html_ecd8f2c681328126c9e29ac38698497d);
+        
+
+        marker_b81c9e69d752f8635dca55ac61daee1f.bindPopup(popup_2f9f8bda6963da7293646921e0614e74)
+        ;
+
+        
+    
+    
+            var marker_24e2c27f86011f66e454d0c7fb97b914 = L.marker(
+                [17.385, 78.4867],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_d0ba279705c53d80de7c5aeefef2c07a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_24e2c27f86011f66e454d0c7fb97b914.setIcon(icon_d0ba279705c53d80de7c5aeefef2c07a);
+        
+    
+        var popup_3d78fe1c83e559b97d0eded4ee4c8dca = L.popup({"maxWidth": 350});
+
+        
+            var html_d03f809869d641b175238c6de4320e13 = $(`<div id="html_d03f809869d641b175238c6de4320e13" style="width: 100.0%; height: 100.0%;">     <b>Dr. Reddy’s</b><br>     Hyderabad, India<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Pharma     </div>`)[0];
+            popup_3d78fe1c83e559b97d0eded4ee4c8dca.setContent(html_d03f809869d641b175238c6de4320e13);
+        
+
+        marker_24e2c27f86011f66e454d0c7fb97b914.bindPopup(popup_3d78fe1c83e559b97d0eded4ee4c8dca)
+        ;
+
+        
+    
+    
+            var marker_56c3c2c91747f85b058c68a1f7b6c83c = L.marker(
+                [18.5204, 73.8567],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_4bc69454bffd8c98f2cc3f850e2632a8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_56c3c2c91747f85b058c68a1f7b6c83c.setIcon(icon_4bc69454bffd8c98f2cc3f850e2632a8);
+        
+    
+        var popup_ca96a384b1fbcd447539ada21b0661a1 = L.popup({"maxWidth": 350});
+
+        
+            var html_2d72fae2ac7c83f2a99ad5d244e0d6f9 = $(`<div id="html_2d72fae2ac7c83f2a99ad5d244e0d6f9" style="width: 100.0%; height: 100.0%;">     <b>Serum Institute of India</b><br>     Pune, India<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> vaccines<br>     <b>Notes:</b> World’s largest vaccine maker     </div>`)[0];
+            popup_ca96a384b1fbcd447539ada21b0661a1.setContent(html_2d72fae2ac7c83f2a99ad5d244e0d6f9);
+        
+
+        marker_56c3c2c91747f85b058c68a1f7b6c83c.bindPopup(popup_ca96a384b1fbcd447539ada21b0661a1)
+        ;
+
+        
+    
+    
+            var marker_eef940429025accb20a06a052fcc1333 = L.marker(
+                [19.076, 72.8777],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_1c7d610f5626e16b987170a6a8654ecb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_eef940429025accb20a06a052fcc1333.setIcon(icon_1c7d610f5626e16b987170a6a8654ecb);
+        
+    
+        var popup_b4c34e019e43902d06a6a8a3c0a807eb = L.popup({"maxWidth": 350});
+
+        
+            var html_a6fcbadf4b77e822cdc36e2132463b42 = $(`<div id="html_a6fcbadf4b77e822cdc36e2132463b42" style="width: 100.0%; height: 100.0%;">     <b>Sun Pharma</b><br>     Mumbai, India<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Pharma     </div>`)[0];
+            popup_b4c34e019e43902d06a6a8a3c0a807eb.setContent(html_a6fcbadf4b77e822cdc36e2132463b42);
+        
+
+        marker_eef940429025accb20a06a052fcc1333.bindPopup(popup_b4c34e019e43902d06a6a8a3c0a807eb)
+        ;
+
+        
+    
+    
+            var marker_5b84cde439290f4cb873c0a6982aaa5f = L.marker(
+                [19.076, 72.8777],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_b73c814b8125de5a489b2bd114614908 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5b84cde439290f4cb873c0a6982aaa5f.setIcon(icon_b73c814b8125de5a489b2bd114614908);
+        
+    
+        var popup_1f6188f25f2e2452e1ebec85ed6f298a = L.popup({"maxWidth": 350});
+
+        
+            var html_ecec4fdb23870c5d574bc219f8cf9a9e = $(`<div id="html_ecec4fdb23870c5d574bc219f8cf9a9e" style="width: 100.0%; height: 100.0%;">     <b>Cipla</b><br>     Mumbai, India<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Pharma     </div>`)[0];
+            popup_1f6188f25f2e2452e1ebec85ed6f298a.setContent(html_ecec4fdb23870c5d574bc219f8cf9a9e);
+        
+
+        marker_5b84cde439290f4cb873c0a6982aaa5f.bindPopup(popup_1f6188f25f2e2452e1ebec85ed6f298a)
+        ;
+
+        
+    
+    
+            var marker_fa8f42984b6bb5c9582087b8812ddeac = L.marker(
+                [-37.8136, 144.9631],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_366a9126a70543199ac35a8a3ebff7f0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fa8f42984b6bb5c9582087b8812ddeac.setIcon(icon_366a9126a70543199ac35a8a3ebff7f0);
+        
+    
+        var popup_dad32fe222c543e159ab326a9e929839 = L.popup({"maxWidth": 350});
+
+        
+            var html_29acaf5e258ab4204e9de389e0d265aa = $(`<div id="html_29acaf5e258ab4204e9de389e0d265aa" style="width: 100.0%; height: 100.0%;">     <b>CSL</b><br>     Melbourne, Australia<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> plasma, vaccines<br>     <b>Notes:</b> Global biotech (CSL Behring)     </div>`)[0];
+            popup_dad32fe222c543e159ab326a9e929839.setContent(html_29acaf5e258ab4204e9de389e0d265aa);
+        
+
+        marker_fa8f42984b6bb5c9582087b8812ddeac.bindPopup(popup_dad32fe222c543e159ab326a9e929839)
+        ;
+
+        
+    
+    
+            var marker_6a66e60c188325a17661a4bc915503eb = L.marker(
+                [45.4642, 9.19],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_57ac5ff92542b7f72f5f5aa661052fdc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6a66e60c188325a17661a4bc915503eb.setIcon(icon_57ac5ff92542b7f72f5f5aa661052fdc);
+        
+    
+        var popup_1379691277f77d92b317f2a28259bf21 = L.popup({"maxWidth": 350});
+
+        
+            var html_981c16bd90340b74432a228d79a67094 = $(`<div id="html_981c16bd90340b74432a228d79a67094" style="width: 100.0%; height: 100.0%;">     <b>Recordati</b><br>     Milan, Italy<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> European pharma     </div>`)[0];
+            popup_1379691277f77d92b317f2a28259bf21.setContent(html_981c16bd90340b74432a228d79a67094);
+        
+
+        marker_6a66e60c188325a17661a4bc915503eb.bindPopup(popup_1379691277f77d92b317f2a28259bf21)
+        ;
+
+        
+    
+    
+            var marker_b5f98ab9c51dfee8a752865ff04e6d48 = L.marker(
+                [50.8503, 4.3517],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_deddb55877584ae63ec1ff0c85c0ba4a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b5f98ab9c51dfee8a752865ff04e6d48.setIcon(icon_deddb55877584ae63ec1ff0c85c0ba4a);
+        
+    
+        var popup_8816f2e16c00dfdd5d14d441a58118b5 = L.popup({"maxWidth": 350});
+
+        
+            var html_ae30323a4d50aaa2aec0f3942dfef9f3 = $(`<div id="html_ae30323a4d50aaa2aec0f3942dfef9f3" style="width: 100.0%; height: 100.0%;">     <b>UCB</b><br>     Brussels, Belgium<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> neurology, immunology<br>     <b>Notes:</b> Biopharma     </div>`)[0];
+            popup_8816f2e16c00dfdd5d14d441a58118b5.setContent(html_ae30323a4d50aaa2aec0f3942dfef9f3);
+        
+
+        marker_b5f98ab9c51dfee8a752865ff04e6d48.bindPopup(popup_8816f2e16c00dfdd5d14d441a58118b5)
+        ;
+
+        
+    
+    
+            var marker_926ab1fa4fd4a1099f1016900d38a48c = L.marker(
+                [49.9716, 8.05],
+                {}
+            ).addTo(marker_cluster_3db1fe960845d99b4f2d5f5a079ab680);
+        
+    
+            var icon_9fed79cd6494bbf7931f9a93a2cbf7bb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_926ab1fa4fd4a1099f1016900d38a48c.setIcon(icon_9fed79cd6494bbf7931f9a93a2cbf7bb);
+        
+    
+        var popup_4cb01c1bc9d860ea3409342cbe42e60b = L.popup({"maxWidth": 350});
+
+        
+            var html_ec989d6fe756229b526f20c2e902e3d5 = $(`<div id="html_ec989d6fe756229b526f20c2e902e3d5" style="width: 100.0%; height: 100.0%;">     <b>Boehringer Ingelheim</b><br>     Ingelheim, Germany<br>     <b>Category:</b> Biotech/Pharma<br>     <b>Tags:</b> pharma<br>     <b>Notes:</b> Family-owned pharma giant     </div>`)[0];
+            popup_4cb01c1bc9d860ea3409342cbe42e60b.setContent(html_ec989d6fe756229b526f20c2e902e3d5);
+        
+
+        marker_926ab1fa4fd4a1099f1016900d38a48c.bindPopup(popup_4cb01c1bc9d860ea3409342cbe42e60b)
+        ;
+
+        
+    
+    
+            var feature_group_97808148fc5eb1c1f784b1dfd5585b57 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_1d1762d506c3d30796cb83c871d08597 = L.markerClusterGroup(
+                {}
+            );
+            feature_group_97808148fc5eb1c1f784b1dfd5585b57.addLayer(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var marker_4bbbd4c85ae2b66657f6a3bc7b624d2e = L.marker(
+                [41.8781, -87.6298],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_79d8fa88fb6b06526c61bdbd2a975179 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4bbbd4c85ae2b66657f6a3bc7b624d2e.setIcon(icon_79d8fa88fb6b06526c61bdbd2a975179);
+        
+    
+        var popup_55da707c481f3448e44cab094109f386 = L.popup({"maxWidth": 350});
+
+        
+            var html_bd56bc51406b8be282daed2f3077d3a3 = $(`<div id="html_bd56bc51406b8be282daed2f3077d3a3" style="width: 100.0%; height: 100.0%;">     <b>GE HealthCare</b><br>     Chicago, USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> imaging, monitoring<br>     <b>Notes:</b> Medical imaging & monitoring     </div>`)[0];
+            popup_55da707c481f3448e44cab094109f386.setContent(html_bd56bc51406b8be282daed2f3077d3a3);
+        
+
+        marker_4bbbd4c85ae2b66657f6a3bc7b624d2e.bindPopup(popup_55da707c481f3448e44cab094109f386)
+        ;
+
+        
+    
+    
+            var marker_8d158b81b211124f90d8fd31160dce8e = L.marker(
+                [42.3459, -71.5523],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_dee9f71f2975ea91d3c1af9ba3258234 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_8d158b81b211124f90d8fd31160dce8e.setIcon(icon_dee9f71f2975ea91d3c1af9ba3258234);
+        
+    
+        var popup_1d5058955eddfbecb976aa2d46629994 = L.popup({"maxWidth": 350});
+
+        
+            var html_29a14227bdcf8dc0eefe0a836473fdb9 = $(`<div id="html_29a14227bdcf8dc0eefe0a836473fdb9" style="width: 100.0%; height: 100.0%;">     <b>Boston Scientific</b><br>     Marlborough, USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> cardio, neuro<br>     <b>Notes:</b> Interventional devices     </div>`)[0];
+            popup_1d5058955eddfbecb976aa2d46629994.setContent(html_29a14227bdcf8dc0eefe0a836473fdb9);
+        
+
+        marker_8d158b81b211124f90d8fd31160dce8e.bindPopup(popup_1d5058955eddfbecb976aa2d46629994)
+        ;
+
+        
+    
+    
+            var marker_059173209d8a33186d80034876254568 = L.marker(
+                [42.3256, -87.859],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_3ace5d17a3ebdb9ed7feef36c2ff0c3b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_059173209d8a33186d80034876254568.setIcon(icon_3ace5d17a3ebdb9ed7feef36c2ff0c3b);
+        
+    
+        var popup_9cd8f6451ac5853eaefe95d02c82d230 = L.popup({"maxWidth": 350});
+
+        
+            var html_c81f54d61d3381618d5cd4088375a4b2 = $(`<div id="html_c81f54d61d3381618d5cd4088375a4b2" style="width: 100.0%; height: 100.0%;">     <b>Abbott</b><br>     North Chicago, USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> CGM (Libre), diagnostics<br>     <b>Notes:</b> CGM & diagnostics leader     </div>`)[0];
+            popup_9cd8f6451ac5853eaefe95d02c82d230.setContent(html_c81f54d61d3381618d5cd4088375a4b2);
+        
+
+        marker_059173209d8a33186d80034876254568.bindPopup(popup_9cd8f6451ac5853eaefe95d02c82d230)
+        ;
+
+        
+    
+    
+            var marker_9c5462cf879014dcfc29ceb1b261a40f = L.marker(
+                [32.909, -117.213],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_88db4d6040906f832d849700a1c52dab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9c5462cf879014dcfc29ceb1b261a40f.setIcon(icon_88db4d6040906f832d849700a1c52dab);
+        
+    
+        var popup_cbcded088d8fd7a79f8fcc55dd21c7ed = L.popup({"maxWidth": 350});
+
+        
+            var html_34c0c70ca0b94e40a91bcb2304d2a939 = $(`<div id="html_34c0c70ca0b94e40a91bcb2304d2a939" style="width: 100.0%; height: 100.0%;">     <b>Dexcom</b><br>     San Diego, USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> CGM (G7)<br>     <b>Notes:</b> Real-time CGM systems     </div>`)[0];
+            popup_cbcded088d8fd7a79f8fcc55dd21c7ed.setContent(html_34c0c70ca0b94e40a91bcb2304d2a939);
+        
+
+        marker_9c5462cf879014dcfc29ceb1b261a40f.bindPopup(popup_cbcded088d8fd7a79f8fcc55dd21c7ed)
+        ;
+
+        
+    
+    
+            var marker_4d1f5b73a5ca2ea8aa73200cc9e0181b = L.marker(
+                [42.4851, -71.4328],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_8fd593a8658502053328ae965f36a345 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4d1f5b73a5ca2ea8aa73200cc9e0181b.setIcon(icon_8fd593a8658502053328ae965f36a345);
+        
+    
+        var popup_1471c000e0678b346e3c9e53c01ec76e = L.popup({"maxWidth": 350});
+
+        
+            var html_cbaca4e6dfd1718dc9991ae0fb6b87dd = $(`<div id="html_cbaca4e6dfd1718dc9991ae0fb6b87dd" style="width: 100.0%; height: 100.0%;">     <b>Insulet</b><br>     Acton (MA), USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> Omnipod insulin pump<br>     <b>Notes:</b> Patch insulin delivery     </div>`)[0];
+            popup_1471c000e0678b346e3c9e53c01ec76e.setContent(html_cbaca4e6dfd1718dc9991ae0fb6b87dd);
+        
+
+        marker_4d1f5b73a5ca2ea8aa73200cc9e0181b.bindPopup(popup_1471c000e0678b346e3c9e53c01ec76e)
+        ;
+
+        
+    
+    
+            var marker_5ae41287c4b4420b00c9c2fdfd17fb86 = L.marker(
+                [34.2381, -118.544],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_fb3088ff2df4751a8b79f6bef067bfa3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_5ae41287c4b4420b00c9c2fdfd17fb86.setIcon(icon_fb3088ff2df4751a8b79f6bef067bfa3);
+        
+    
+        var popup_122bfe241a4bafe949a91a45a839bd4b = L.popup({"maxWidth": 350});
+
+        
+            var html_8fa67abf4db305a58548be44171dbb43 = $(`<div id="html_8fa67abf4db305a58548be44171dbb43" style="width: 100.0%; height: 100.0%;">     <b>Medtronic Diabetes</b><br>     Northridge (LA), USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> insulin pumps, sensors<br>     <b>Notes:</b> Diabetes devices     </div>`)[0];
+            popup_122bfe241a4bafe949a91a45a839bd4b.setContent(html_8fa67abf4db305a58548be44171dbb43);
+        
+
+        marker_5ae41287c4b4420b00c9c2fdfd17fb86.bindPopup(popup_122bfe241a4bafe949a91a45a839bd4b)
+        ;
+
+        
+    
+    
+            var marker_715dff140298590e95ea27974a702602 = L.marker(
+                [39.1732, -77.2717],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_945a1cf58b06b53259ad1a6d94f68d8b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_715dff140298590e95ea27974a702602.setIcon(icon_945a1cf58b06b53259ad1a6d94f68d8b);
+        
+    
+        var popup_f9e61bc787a2ad52caaf6c99fbd4dedf = L.popup({"maxWidth": 350});
+
+        
+            var html_1f3a2d4490714a1922ca256d8f32b025 = $(`<div id="html_1f3a2d4490714a1922ca256d8f32b025" style="width: 100.0%; height: 100.0%;">     <b>Senseonics</b><br>     Germantown (MD), USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> implantable CGM (Eversense)<br>     <b>Notes:</b> Long-wear implantable CGM     </div>`)[0];
+            popup_f9e61bc787a2ad52caaf6c99fbd4dedf.setContent(html_1f3a2d4490714a1922ca256d8f32b025);
+        
+
+        marker_715dff140298590e95ea27974a702602.bindPopup(popup_f9e61bc787a2ad52caaf6c99fbd4dedf)
+        ;
+
+        
+    
+    
+            var marker_9dc8cb0452ae1d750c3d4ef25b5ec38e = L.marker(
+                [33.6846, -117.8265],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_0fcdca36252deec8564f359efe9bb7cf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9dc8cb0452ae1d750c3d4ef25b5ec38e.setIcon(icon_0fcdca36252deec8564f359efe9bb7cf);
+        
+    
+        var popup_5e44203edc907bd4cca6e80a33d71afc = L.popup({"maxWidth": 350});
+
+        
+            var html_fcae32a610d4438dbdbcb8ee8a0835a1 = $(`<div id="html_fcae32a610d4438dbdbcb8ee8a0835a1" style="width: 100.0%; height: 100.0%;">     <b>Masimo</b><br>     Irvine (CA), USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> pulse oximetry<br>     <b>Notes:</b> Noninvasive monitoring     </div>`)[0];
+            popup_5e44203edc907bd4cca6e80a33d71afc.setContent(html_fcae32a610d4438dbdbcb8ee8a0835a1);
+        
+
+        marker_9dc8cb0452ae1d750c3d4ef25b5ec38e.bindPopup(popup_5e44203edc907bd4cca6e80a33d71afc)
+        ;
+
+        
+    
+    
+            var marker_697489e430c763ee19ce20b187212d64 = L.marker(
+                [37.7749, -122.4194],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_b2739dbabd5ae9bb1b6993d9a3ca102b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_697489e430c763ee19ce20b187212d64.setIcon(icon_b2739dbabd5ae9bb1b6993d9a3ca102b);
+        
+    
+        var popup_2e1c9495b9276e7a5218f56afd1cd4f5 = L.popup({"maxWidth": 350});
+
+        
+            var html_e03760e447843732db24427e1776fa90 = $(`<div id="html_e03760e447843732db24427e1776fa90" style="width: 100.0%; height: 100.0%;">     <b>iRhythm</b><br>     San Francisco, USA<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> cardiac patch (Zio)<br>     <b>Notes:</b> Arrhythmia detection     </div>`)[0];
+            popup_2e1c9495b9276e7a5218f56afd1cd4f5.setContent(html_e03760e447843732db24427e1776fa90);
+        
+
+        marker_697489e430c763ee19ce20b187212d64.bindPopup(popup_2e1c9495b9276e7a5218f56afd1cd4f5)
+        ;
+
+        
+    
+    
+            var marker_bfb68793010e806a274b6c0ff88060a0 = L.marker(
+                [49.5897, 11.0119],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_6c24e1d136b4234b24e17a651262ae2c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_bfb68793010e806a274b6c0ff88060a0.setIcon(icon_6c24e1d136b4234b24e17a651262ae2c);
+        
+    
+        var popup_a1b29b54c7d5b696e24fc1529a08e7d1 = L.popup({"maxWidth": 350});
+
+        
+            var html_7126795bb78e41fc8c37fa7ae3d76644 = $(`<div id="html_7126795bb78e41fc8c37fa7ae3d76644" style="width: 100.0%; height: 100.0%;">     <b>Siemens Healthineers</b><br>     Erlangen, Germany<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> imaging, diagnostics<br>     <b>Notes:</b> Major medtech     </div>`)[0];
+            popup_a1b29b54c7d5b696e24fc1529a08e7d1.setContent(html_7126795bb78e41fc8c37fa7ae3d76644);
+        
+
+        marker_bfb68793010e806a274b6c0ff88060a0.bindPopup(popup_a1b29b54c7d5b696e24fc1529a08e7d1)
+        ;
+
+        
+    
+    
+            var marker_be694394efe7d741760c78328a0c569b = L.marker(
+                [52.52, 13.405],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_bc309361b28d38a3cafaaa0fa5a21cf0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_be694394efe7d741760c78328a0c569b.setIcon(icon_bc309361b28d38a3cafaaa0fa5a21cf0);
+        
+    
+        var popup_2752e0a18b9b976604b525fffa467c9a = L.popup({"maxWidth": 350});
+
+        
+            var html_e7c72c5952daf1d942aa80a481d907af = $(`<div id="html_e7c72c5952daf1d942aa80a481d907af" style="width: 100.0%; height: 100.0%;">     <b>DiaMonTech</b><br>     Berlin, Germany<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> non-invasive glucose R&D<br>     <b>Notes:</b> Infrared glucose sensing R&D     </div>`)[0];
+            popup_2752e0a18b9b976604b525fffa467c9a.setContent(html_e7c72c5952daf1d942aa80a481d907af);
+        
+
+        marker_be694394efe7d741760c78328a0c569b.bindPopup(popup_2752e0a18b9b976604b525fffa467c9a)
+        ;
+
+        
+    
+    
+            var marker_f05ec5097c8a0b27a90227910531a578 = L.marker(
+                [51.5072, -0.1276],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_39576b2664b01d6164b7cb830d69a5a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_f05ec5097c8a0b27a90227910531a578.setIcon(icon_39576b2664b01d6164b7cb830d69a5a0);
+        
+    
+        var popup_63467343a8b96103b3da244efed74f7a = L.popup({"maxWidth": 350});
+
+        
+            var html_f7854c31f9610825fe696c5f38152308 = $(`<div id="html_f7854c31f9610825fe696c5f38152308" style="width: 100.0%; height: 100.0%;">     <b>Smith & Nephew</b><br>     London, UK<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> orthopedics, wound care<br>     <b>Notes:</b> Medtech     </div>`)[0];
+            popup_63467343a8b96103b3da244efed74f7a.setContent(html_f7854c31f9610825fe696c5f38152308);
+        
+
+        marker_f05ec5097c8a0b27a90227910531a578.bindPopup(popup_63467343a8b96103b3da244efed74f7a)
+        ;
+
+        
+    
+    
+            var marker_a659bd186edfeda348ed4b99858e7580 = L.marker(
+                [51.4416, 5.4697],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_90f0a61d6e47c02ebb6bb70670aacdd9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_a659bd186edfeda348ed4b99858e7580.setIcon(icon_90f0a61d6e47c02ebb6bb70670aacdd9);
+        
+    
+        var popup_835189c2e3c2f3f67c37d6c83ed65349 = L.popup({"maxWidth": 350});
+
+        
+            var html_f40635beda01d975f42a6cd451e1ecd3 = $(`<div id="html_f40635beda01d975f42a6cd451e1ecd3" style="width: 100.0%; height: 100.0%;">     <b>Philips Healthcare</b><br>     Eindhoven, Netherlands<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> imaging, devices<br>     <b>Notes:</b> Medtech & consumer health     </div>`)[0];
+            popup_835189c2e3c2f3f67c37d6c83ed65349.setContent(html_f40635beda01d975f42a6cd451e1ecd3);
+        
+
+        marker_a659bd186edfeda348ed4b99858e7580.bindPopup(popup_835189c2e3c2f3f67c37d6c83ed65349)
+        ;
+
+        
+    
+    
+            var marker_c4aa76b83d96c1dd24a1d8306c662604 = L.marker(
+                [59.3293, 18.0686],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_09cdf206eade6a58cc8eccf1f2e5d31d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_c4aa76b83d96c1dd24a1d8306c662604.setIcon(icon_09cdf206eade6a58cc8eccf1f2e5d31d);
+        
+    
+        var popup_7320e41350a4d228b45c3693986a4436 = L.popup({"maxWidth": 350});
+
+        
+            var html_425d82377a78502568a4081de4d296e6 = $(`<div id="html_425d82377a78502568a4081de4d296e6" style="width: 100.0%; height: 100.0%;">     <b>Elekta</b><br>     Stockholm, Sweden<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> radiotherapy<br>     <b>Notes:</b> Oncology devices     </div>`)[0];
+            popup_7320e41350a4d228b45c3693986a4436.setContent(html_425d82377a78502568a4081de4d296e6);
+        
+
+        marker_c4aa76b83d96c1dd24a1d8306c662604.bindPopup(popup_7320e41350a4d228b45c3693986a4436)
+        ;
+
+        
+    
+    
+            var marker_b2dee2bc97100e3b26ca9cd9dc6ceb11 = L.marker(
+                [53.3498, -6.2603],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_f4be39ac006a819804394d1781578719 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_b2dee2bc97100e3b26ca9cd9dc6ceb11.setIcon(icon_f4be39ac006a819804394d1781578719);
+        
+    
+        var popup_75e82b6bfc870a40f5bb2e538925a38d = L.popup({"maxWidth": 350});
+
+        
+            var html_bdf062308cfb2142a42072ab23c6f59c = $(`<div id="html_bdf062308cfb2142a42072ab23c6f59c" style="width: 100.0%; height: 100.0%;">     <b>Medtronic (HQ)</b><br>     Dublin, Ireland<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> devices, diabetes, cardio<br>     <b>Notes:</b> Global medtech HQ     </div>`)[0];
+            popup_75e82b6bfc870a40f5bb2e538925a38d.setContent(html_bdf062308cfb2142a42072ab23c6f59c);
+        
+
+        marker_b2dee2bc97100e3b26ca9cd9dc6ceb11.bindPopup(popup_75e82b6bfc870a40f5bb2e538925a38d)
+        ;
+
+        
+    
+    
+            var marker_783b348ff5a30c1be27fb732a8b8c57b = L.marker(
+                [35.6895, 139.6917],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_87c0336b3683a71e2cf5ff072b7c6c64 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_783b348ff5a30c1be27fb732a8b8c57b.setIcon(icon_87c0336b3683a71e2cf5ff072b7c6c64);
+        
+    
+        var popup_c490a262226ba1ddaa091f9cc9291e8f = L.popup({"maxWidth": 350});
+
+        
+            var html_a777a40aedcd2ffaaa04f41596f69f84 = $(`<div id="html_a777a40aedcd2ffaaa04f41596f69f84" style="width: 100.0%; height: 100.0%;">     <b>Terumo</b><br>     Tokyo, Japan<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> devices<br>     <b>Notes:</b> Medtech     </div>`)[0];
+            popup_c490a262226ba1ddaa091f9cc9291e8f.setContent(html_a777a40aedcd2ffaaa04f41596f69f84);
+        
+
+        marker_783b348ff5a30c1be27fb732a8b8c57b.bindPopup(popup_c490a262226ba1ddaa091f9cc9291e8f)
+        ;
+
+        
+    
+    
+            var marker_05800c68035be996bd8e6383a3c407c7 = L.marker(
+                [35.0116, 135.7681],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_ef4d350ab759fe75735d5b2282681864 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_05800c68035be996bd8e6383a3c407c7.setIcon(icon_ef4d350ab759fe75735d5b2282681864);
+        
+    
+        var popup_2f721c872c341bee3af34e272f07e275 = L.popup({"maxWidth": 350});
+
+        
+            var html_3930c04cf9b8eb038aaa956be0a33775 = $(`<div id="html_3930c04cf9b8eb038aaa956be0a33775" style="width: 100.0%; height: 100.0%;">     <b>Omron Healthcare</b><br>     Kyoto, Japan<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> BP monitors, wearables<br>     <b>Notes:</b> Consumer devices     </div>`)[0];
+            popup_2f721c872c341bee3af34e272f07e275.setContent(html_3930c04cf9b8eb038aaa956be0a33775);
+        
+
+        marker_05800c68035be996bd8e6383a3c407c7.bindPopup(popup_2f721c872c341bee3af34e272f07e275)
+        ;
+
+        
+    
+    
+            var marker_ac1d49a549e9a15bcd3ead87eb05c1ba = L.marker(
+                [22.5431, 114.0579],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_599a4b75aa2461bd8e027e91272b9278 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_ac1d49a549e9a15bcd3ead87eb05c1ba.setIcon(icon_599a4b75aa2461bd8e027e91272b9278);
+        
+    
+        var popup_8ca78187a22e12b40a6a3f77a9c698ce = L.popup({"maxWidth": 350});
+
+        
+            var html_413602d5d599a96682e0920bac2ac38c = $(`<div id="html_413602d5d599a96682e0920bac2ac38c" style="width: 100.0%; height: 100.0%;">     <b>Mindray</b><br>     Shenzhen, China<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> patient monitoring<br>     <b>Notes:</b> Medtech devices     </div>`)[0];
+            popup_8ca78187a22e12b40a6a3f77a9c698ce.setContent(html_413602d5d599a96682e0920bac2ac38c);
+        
+
+        marker_ac1d49a549e9a15bcd3ead87eb05c1ba.bindPopup(popup_8ca78187a22e12b40a6a3f77a9c698ce)
+        ;
+
+        
+    
+    
+            var marker_bf5eaebae2e427589079d10a2f6de6c1 = L.marker(
+                [32.794, 34.9896],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_bf6368a9c70e5f5777f6d0e55d642d55 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_bf5eaebae2e427589079d10a2f6de6c1.setIcon(icon_bf6368a9c70e5f5777f6d0e55d642d55);
+        
+    
+        var popup_a6f2e43b88ede0ea7bde4df70d4401fe = L.popup({"maxWidth": 350});
+
+        
+            var html_00ce83b42cf000029055c60d0a10b314 = $(`<div id="html_00ce83b42cf000029055c60d0a10b314" style="width: 100.0%; height: 100.0%;">     <b>Insightec</b><br>     Haifa, Israel<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> focused ultrasound<br>     <b>Notes:</b> Noninvasive neuro-surgery     </div>`)[0];
+            popup_a6f2e43b88ede0ea7bde4df70d4401fe.setContent(html_00ce83b42cf000029055c60d0a10b314);
+        
+
+        marker_bf5eaebae2e427589079d10a2f6de6c1.bindPopup(popup_a6f2e43b88ede0ea7bde4df70d4401fe)
+        ;
+
+        
+    
+    
+            var marker_7ec6a879b6b62435cd1809d0abc0cc1c = L.marker(
+                [32.0871, 34.8853],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_b23936ad0487eeb736d5021a3309d474 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_7ec6a879b6b62435cd1809d0abc0cc1c.setIcon(icon_b23936ad0487eeb736d5021a3309d474);
+        
+    
+        var popup_1d1da169c635529f2e6a499c61d056d6 = L.popup({"maxWidth": 350});
+
+        
+            var html_315fc75cc7a66dee50b197adb70b77c0 = $(`<div id="html_315fc75cc7a66dee50b197adb70b77c0" style="width: 100.0%; height: 100.0%;">     <b>Nano-X Imaging</b><br>     Petah Tikva, Israel<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> digital X-ray<br>     <b>Notes:</b> Imaging innovation     </div>`)[0];
+            popup_1d1da169c635529f2e6a499c61d056d6.setContent(html_315fc75cc7a66dee50b197adb70b77c0);
+        
+
+        marker_7ec6a879b6b62435cd1809d0abc0cc1c.bindPopup(popup_1d1da169c635529f2e6a499c61d056d6)
+        ;
+
+        
+    
+    
+            var marker_ba7d4348a87b7f8ad8dbc2152caa3e8f = L.marker(
+                [-33.8688, 151.2093],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_ae21642d43144a15b49a3232e39abf83 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_ba7d4348a87b7f8ad8dbc2152caa3e8f.setIcon(icon_ae21642d43144a15b49a3232e39abf83);
+        
+    
+        var popup_2c7893e29d59cea23ea4b39b3dc24d49 = L.popup({"maxWidth": 350});
+
+        
+            var html_22d5ccc1bd6e0bda6aad8c4031d8e467 = $(`<div id="html_22d5ccc1bd6e0bda6aad8c4031d8e467" style="width: 100.0%; height: 100.0%;">     <b>Cochlear</b><br>     Sydney, Australia<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> hearing implants<br>     <b>Notes:</b> Hearing technology     </div>`)[0];
+            popup_2c7893e29d59cea23ea4b39b3dc24d49.setContent(html_22d5ccc1bd6e0bda6aad8c4031d8e467);
+        
+
+        marker_ba7d4348a87b7f8ad8dbc2152caa3e8f.bindPopup(popup_2c7893e29d59cea23ea4b39b3dc24d49)
+        ;
+
+        
+    
+    
+            var marker_2c7f248ceca9053979d632a8f52bcaac = L.marker(
+                [-33.8688, 151.2093],
+                {}
+            ).addTo(marker_cluster_1d1762d506c3d30796cb83c871d08597);
+        
+    
+            var icon_2fed6f0706c86321d23741e974d872f2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_2c7f248ceca9053979d632a8f52bcaac.setIcon(icon_2fed6f0706c86321d23741e974d872f2);
+        
+    
+        var popup_c55cfd93ca742214f4eccadd50a52b9c = L.popup({"maxWidth": 350});
+
+        
+            var html_dc2d6ef285e243ad1439c4337e2648bc = $(`<div id="html_dc2d6ef285e243ad1439c4337e2648bc" style="width: 100.0%; height: 100.0%;">     <b>ResMed</b><br>     Sydney, Australia<br>     <b>Category:</b> MedTech/Devices<br>     <b>Tags:</b> sleep apnea<br>     <b>Notes:</b> Sleep & respiratory devices     </div>`)[0];
+            popup_c55cfd93ca742214f4eccadd50a52b9c.setContent(html_dc2d6ef285e243ad1439c4337e2648bc);
+        
+
+        marker_2c7f248ceca9053979d632a8f52bcaac.bindPopup(popup_c55cfd93ca742214f4eccadd50a52b9c)
+        ;
+
+        
+    
+    
+            var feature_group_a63d444b68b6fedd6c1fd46dd5f84265 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_0b167dd7165605afa55aa469b304f2e1 = L.markerClusterGroup(
+                {}
+            );
+            feature_group_a63d444b68b6fedd6c1fd46dd5f84265.addLayer(marker_cluster_0b167dd7165605afa55aa469b304f2e1);
+        
+    
+            var marker_eb3689a2f861a035f6756574e1f707a7 = L.marker(
+                [37.7749, -122.4194],
+                {}
+            ).addTo(marker_cluster_0b167dd7165605afa55aa469b304f2e1);
+        
+    
+            var icon_a2505e2b2a7b027027fa1304794a6536 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "cadetblue", "prefix": "fa"}
+            );
+            marker_eb3689a2f861a035f6756574e1f707a7.setIcon(icon_a2505e2b2a7b027027fa1304794a6536);
+        
+    
+        var popup_a3309eb11504641b4c36d420a5da7201 = L.popup({"maxWidth": 350});
+
+        
+            var html_4ec49f48cd6e7ce29817ea335b6081bb = $(`<div id="html_4ec49f48cd6e7ce29817ea335b6081bb" style="width: 100.0%; height: 100.0%;">     <b>Emotiv</b><br>     San Francisco, USA<br>     <b>Category:</b> EEG/BCI<br>     <b>Tags:</b> EEG headsets<br>     <b>Notes:</b> Prosumer EEG devices     </div>`)[0];
+            popup_a3309eb11504641b4c36d420a5da7201.setContent(html_4ec49f48cd6e7ce29817ea335b6081bb);
+        
+
+        marker_eb3689a2f861a035f6756574e1f707a7.bindPopup(popup_a3309eb11504641b4c36d420a5da7201)
+        ;
+
+        
+    
+    
+            var marker_811dadc6eee8779dbd58a047a1a81d93 = L.marker(
+                [34.0522, -118.2437],
+                {}
+            ).addTo(marker_cluster_0b167dd7165605afa55aa469b304f2e1);
+        
+    
+            var icon_08e0c82d44517b7ba7a9ab6fa0c6f2a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "cadetblue", "prefix": "fa"}
+            );
+            marker_811dadc6eee8779dbd58a047a1a81d93.setIcon(icon_08e0c82d44517b7ba7a9ab6fa0c6f2a3);
+        
+    
+        var popup_5d4421b519a935507979d78e5514f8dc = L.popup({"maxWidth": 350});
+
+        
+            var html_f98273de440cc6e1ffd43478f0204da0 = $(`<div id="html_f98273de440cc6e1ffd43478f0204da0" style="width: 100.0%; height: 100.0%;">     <b>Kernel</b><br>     Los Angeles, USA<br>     <b>Category:</b> EEG/BCI<br>     <b>Tags:</b> brain imaging helmet<br>     <b>Notes:</b> Next-gen neurotech     </div>`)[0];
+            popup_5d4421b519a935507979d78e5514f8dc.setContent(html_f98273de440cc6e1ffd43478f0204da0);
+        
+
+        marker_811dadc6eee8779dbd58a047a1a81d93.bindPopup(popup_5d4421b519a935507979d78e5514f8dc)
+        ;
+
+        
+    
+    
+            var marker_504b8eb6d73ca97681dce29df5d3ea52 = L.marker(
+                [40.7128, -74.006],
+                {}
+            ).addTo(marker_cluster_0b167dd7165605afa55aa469b304f2e1);
+        
+    
+            var icon_a509f22e99878d3c1ca8733eb7d79e7a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "cadetblue", "prefix": "fa"}
+            );
+            marker_504b8eb6d73ca97681dce29df5d3ea52.setIcon(icon_a509f22e99878d3c1ca8733eb7d79e7a);
+        
+    
+        var popup_2b4ae446d9af9d19035c4d13bc8a345e = L.popup({"maxWidth": 350});
+
+        
+            var html_9c5595efea7dd3189923ac0b7700811b = $(`<div id="html_9c5595efea7dd3189923ac0b7700811b" style="width: 100.0%; height: 100.0%;">     <b>OpenBCI</b><br>     New York, USA<br>     <b>Category:</b> EEG/BCI<br>     <b>Tags:</b> open-source EEG<br>     <b>Notes:</b> Developer EEG platform     </div>`)[0];
+            popup_2b4ae446d9af9d19035c4d13bc8a345e.setContent(html_9c5595efea7dd3189923ac0b7700811b);
+        
+
+        marker_504b8eb6d73ca97681dce29df5d3ea52.bindPopup(popup_2b4ae446d9af9d19035c4d13bc8a345e)
+        ;
+
+        
+    
+    
+            var marker_3074ba1f2f23570eab3798cbbfa1ffde = L.marker(
+                [43.6532, -79.3832],
+                {}
+            ).addTo(marker_cluster_0b167dd7165605afa55aa469b304f2e1);
+        
+    
+            var icon_eea9062aabfb5583e9399aa6ca11b44b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "cadetblue", "prefix": "fa"}
+            );
+            marker_3074ba1f2f23570eab3798cbbfa1ffde.setIcon(icon_eea9062aabfb5583e9399aa6ca11b44b);
+        
+    
+        var popup_0cf6bf36a7d15192131f4c0c1a60a3cd = L.popup({"maxWidth": 350});
+
+        
+            var html_371a4c744ace800b2dd09a54fc06f2f5 = $(`<div id="html_371a4c744ace800b2dd09a54fc06f2f5" style="width: 100.0%; height: 100.0%;">     <b>Interaxon (Muse)</b><br>     Toronto, Canada<br>     <b>Category:</b> EEG/BCI<br>     <b>Tags:</b> EEG headband<br>     <b>Notes:</b> Consumer meditation EEG     </div>`)[0];
+            popup_0cf6bf36a7d15192131f4c0c1a60a3cd.setContent(html_371a4c744ace800b2dd09a54fc06f2f5);
+        
+
+        marker_3074ba1f2f23570eab3798cbbfa1ffde.bindPopup(popup_0cf6bf36a7d15192131f4c0c1a60a3cd)
+        ;
+
+        
+    
+    
+            var feature_group_1b799c4d33f5c4477811839eacc93391 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_20250ed121091f0b65b00abf296fc1e6 = L.markerClusterGroup(
+                {}
+            );
+            feature_group_1b799c4d33f5c4477811839eacc93391.addLayer(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var marker_217a016f0392e370e446af860d704601 = L.marker(
+                [42.3762, -71.2367],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_e3c23dcdf913f41685594e99675706b4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_217a016f0392e370e446af860d704601.setIcon(icon_e3c23dcdf913f41685594e99675706b4);
+        
+    
+        var popup_6d6c82b5d965139293e886b09c8c0599 = L.popup({"maxWidth": 350});
+
+        
+            var html_4430ae9ec194230c02f9f064aff218a9 = $(`<div id="html_4430ae9ec194230c02f9f064aff218a9" style="width: 100.0%; height: 100.0%;">     <b>Thermo Fisher Scientific</b><br>     Waltham, USA<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> instruments, reagents, CRO<br>     <b>Notes:</b> Life-science tools & services     </div>`)[0];
+            popup_6d6c82b5d965139293e886b09c8c0599.setContent(html_4430ae9ec194230c02f9f064aff218a9);
+        
+
+        marker_217a016f0392e370e446af860d704601.bindPopup(popup_6d6c82b5d965139293e886b09c8c0599)
+        ;
+
+        
+    
+    
+            var marker_a5d78ee83bfa8b8e83ea2852d5c13906 = L.marker(
+                [32.875, -117.233],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_234152a0e6db1408eda1a2203be927cc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_a5d78ee83bfa8b8e83ea2852d5c13906.setIcon(icon_234152a0e6db1408eda1a2203be927cc);
+        
+    
+        var popup_9a284ae280c4dd54d057656d8a742cdc = L.popup({"maxWidth": 350});
+
+        
+            var html_74f06c32d7370a0c6e0a7b00d03064e8 = $(`<div id="html_74f06c32d7370a0c6e0a7b00d03064e8" style="width: 100.0%; height: 100.0%;">     <b>Illumina</b><br>     San Diego, USA<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> genomics, sequencing<br>     <b>Notes:</b> Genomics leader     </div>`)[0];
+            popup_9a284ae280c4dd54d057656d8a742cdc.setContent(html_74f06c32d7370a0c6e0a7b00d03064e8);
+        
+
+        marker_a5d78ee83bfa8b8e83ea2852d5c13906.bindPopup(popup_9a284ae280c4dd54d057656d8a742cdc)
+        ;
+
+        
+    
+    
+            var marker_356d43784a3aa991afdda4575df6fc92 = L.marker(
+                [47.6062, -122.3321],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_a4008f66b87f434a4abe3a560d013a95 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_356d43784a3aa991afdda4575df6fc92.setIcon(icon_a4008f66b87f434a4abe3a560d013a95);
+        
+    
+        var popup_512fea3437128c43cf828b4b2c4a6f9a = L.popup({"maxWidth": 350});
+
+        
+            var html_89b3f6c60654775427ef9d652f80b87f = $(`<div id="html_89b3f6c60654775427ef9d652f80b87f" style="width: 100.0%; height: 100.0%;">     <b>Adaptive Biotechnologies</b><br>     Seattle, USA<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> immunosequencing<br>     <b>Notes:</b> Immune system profiling     </div>`)[0];
+            popup_512fea3437128c43cf828b4b2c4a6f9a.setContent(html_89b3f6c60654775427ef9d652f80b87f);
+        
+
+        marker_356d43784a3aa991afdda4575df6fc92.bindPopup(popup_512fea3437128c43cf828b4b2c4a6f9a)
+        ;
+
+        
+    
+    
+            var marker_885c4b2b565c7bb5dcc3eb88e25b32ab = L.marker(
+                [37.3688, -122.0363],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_30ba31534cd8077638566718dff2ba3b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_885c4b2b565c7bb5dcc3eb88e25b32ab.setIcon(icon_30ba31534cd8077638566718dff2ba3b);
+        
+    
+        var popup_6e48fc98eb9a6b92f656e928c166d448 = L.popup({"maxWidth": 350});
+
+        
+            var html_3347d558b2ca815347e704c24e64b86c = $(`<div id="html_3347d558b2ca815347e704c24e64b86c" style="width: 100.0%; height: 100.0%;">     <b>23andMe</b><br>     Sunnyvale, USA<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> consumer genomics<br>     <b>Notes:</b> DTC genetic testing     </div>`)[0];
+            popup_6e48fc98eb9a6b92f656e928c166d448.setContent(html_3347d558b2ca815347e704c24e64b86c);
+        
+
+        marker_885c4b2b565c7bb5dcc3eb88e25b32ab.bindPopup(popup_6e48fc98eb9a6b92f656e928c166d448)
+        ;
+
+        
+    
+    
+            var marker_cd416cc88b178fdd33143dd29c192ccb = L.marker(
+                [49.2827, -123.1207],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_be628b9121aeefaa0fb3de9ff1ac4e71 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_cd416cc88b178fdd33143dd29c192ccb.setIcon(icon_be628b9121aeefaa0fb3de9ff1ac4e71);
+        
+    
+        var popup_3f5092f04c14f294c76dba499b457c72 = L.popup({"maxWidth": 350});
+
+        
+            var html_e38352e32e987366e637e978acc36b8a = $(`<div id="html_e38352e32e987366e637e978acc36b8a" style="width: 100.0%; height: 100.0%;">     <b>AbCellera</b><br>     Vancouver, Canada<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> antibody discovery<br>     <b>Notes:</b> AI-enabled antibody discovery     </div>`)[0];
+            popup_3f5092f04c14f294c76dba499b457c72.setContent(html_e38352e32e987366e637e978acc36b8a);
+        
+
+        marker_cd416cc88b178fdd33143dd29c192ccb.bindPopup(popup_3f5092f04c14f294c76dba499b457c72)
+        ;
+
+        
+    
+    
+            var marker_5aa307457089fee7d3954afad04b73e8 = L.marker(
+                [51.1682, 6.9309],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_ff864dbaeee52c33d0a3b61b6e3071ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_5aa307457089fee7d3954afad04b73e8.setIcon(icon_ff864dbaeee52c33d0a3b61b6e3071ae);
+        
+    
+        var popup_36b52b1c3553d00a4b7496d51cf73d0c = L.popup({"maxWidth": 350});
+
+        
+            var html_5b1abca1d4dd11b05c3d29c167acfb39 = $(`<div id="html_5b1abca1d4dd11b05c3d29c167acfb39" style="width: 100.0%; height: 100.0%;">     <b>Qiagen</b><br>     Hilden, Germany<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> sample prep, diagnostics<br>     <b>Notes:</b> Molecular diagnostics/tools     </div>`)[0];
+            popup_36b52b1c3553d00a4b7496d51cf73d0c.setContent(html_5b1abca1d4dd11b05c3d29c167acfb39);
+        
+
+        marker_5aa307457089fee7d3954afad04b73e8.bindPopup(popup_36b52b1c3553d00a4b7496d51cf73d0c)
+        ;
+
+        
+    
+    
+            var marker_e9dec69fd513d13cbbe8963f4fa67521 = L.marker(
+                [53.5511, 9.9937],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_4bf3fd5574f397bdf66c59ebf1945b87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_e9dec69fd513d13cbbe8963f4fa67521.setIcon(icon_4bf3fd5574f397bdf66c59ebf1945b87);
+        
+    
+        var popup_73668e134bc54dc814a0c90fb9126ee5 = L.popup({"maxWidth": 350});
+
+        
+            var html_76da85c4f890a2cfd587a53d4eca3c4b = $(`<div id="html_76da85c4f890a2cfd587a53d4eca3c4b" style="width: 100.0%; height: 100.0%;">     <b>Evotec</b><br>     Hamburg, Germany<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> drug discovery<br>     <b>Notes:</b> Drug discovery platform     </div>`)[0];
+            popup_73668e134bc54dc814a0c90fb9126ee5.setContent(html_76da85c4f890a2cfd587a53d4eca3c4b);
+        
+
+        marker_e9dec69fd513d13cbbe8963f4fa67521.bindPopup(popup_73668e134bc54dc814a0c90fb9126ee5)
+        ;
+
+        
+    
+    
+            var marker_8ea692ecdc3246f22a198ded103513e6 = L.marker(
+                [51.5333, 9.935],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_3cea7345a96754ff8ce753daab7113fa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_8ea692ecdc3246f22a198ded103513e6.setIcon(icon_3cea7345a96754ff8ce753daab7113fa);
+        
+    
+        var popup_912280bc9a3f9445ca807d63798281b2 = L.popup({"maxWidth": 350});
+
+        
+            var html_f22e94d8175271d2d8ffe6f21259c51a = $(`<div id="html_f22e94d8175271d2d8ffe6f21259c51a" style="width: 100.0%; height: 100.0%;">     <b>Sartorius</b><br>     Göttingen, Germany<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> bioprocessing<br>     <b>Notes:</b> Bioprocess equipment     </div>`)[0];
+            popup_912280bc9a3f9445ca807d63798281b2.setContent(html_f22e94d8175271d2d8ffe6f21259c51a);
+        
+
+        marker_8ea692ecdc3246f22a198ded103513e6.bindPopup(popup_912280bc9a3f9445ca807d63798281b2)
+        ;
+
+        
+    
+    
+            var marker_09769f8f9fc57873f0e60fcaa7948291 = L.marker(
+                [51.752, -1.2577],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_d359993234ee69f8941b49a117858770 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_09769f8f9fc57873f0e60fcaa7948291.setIcon(icon_d359993234ee69f8941b49a117858770);
+        
+    
+        var popup_1d29ca5c8f17c35d74bed4ee97a87c7e = L.popup({"maxWidth": 350});
+
+        
+            var html_4dd66b39c6160881c5c019455344ea9f = $(`<div id="html_4dd66b39c6160881c5c019455344ea9f" style="width: 100.0%; height: 100.0%;">     <b>Oxford Nanopore</b><br>     Oxford, UK<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> nanopore sequencing<br>     <b>Notes:</b> Portable genomics     </div>`)[0];
+            popup_1d29ca5c8f17c35d74bed4ee97a87c7e.setContent(html_4dd66b39c6160881c5c019455344ea9f);
+        
+
+        marker_09769f8f9fc57873f0e60fcaa7948291.bindPopup(popup_1d29ca5c8f17c35d74bed4ee97a87c7e)
+        ;
+
+        
+    
+    
+            var marker_f0c33a18910a5a574084bc68cb8d6a85 = L.marker(
+                [51.5072, -0.1276],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_b3f3c7bb7926333035f8b2c31e6f6acb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_f0c33a18910a5a574084bc68cb8d6a85.setIcon(icon_b3f3c7bb7926333035f8b2c31e6f6acb);
+        
+    
+        var popup_81e9a8e3c5e40dbef6e7d6a04697e098 = L.popup({"maxWidth": 350});
+
+        
+            var html_5c36f49bd81dcfa9e1f104d162ecf9ef = $(`<div id="html_5c36f49bd81dcfa9e1f104d162ecf9ef" style="width: 100.0%; height: 100.0%;">     <b>BenevolentAI</b><br>     London, UK<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> AI drug discovery<br>     <b>Notes:</b> AI-first pharma R&D     </div>`)[0];
+            popup_81e9a8e3c5e40dbef6e7d6a04697e098.setContent(html_5c36f49bd81dcfa9e1f104d162ecf9ef);
+        
+
+        marker_f0c33a18910a5a574084bc68cb8d6a85.bindPopup(popup_81e9a8e3c5e40dbef6e7d6a04697e098)
+        ;
+
+        
+    
+    
+            var marker_049dbb9223f507b184c60676d5bb521b = L.marker(
+                [22.5431, 114.0579],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_5897faa7a2612e4f34692f63d5e08802 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_049dbb9223f507b184c60676d5bb521b.setIcon(icon_5897faa7a2612e4f34692f63d5e08802);
+        
+    
+        var popup_deb7352d09ec1f959e4cf87a4549d0ae = L.popup({"maxWidth": 350});
+
+        
+            var html_87f596f9f34907238df2d43d8bb60663 = $(`<div id="html_87f596f9f34907238df2d43d8bb60663" style="width: 100.0%; height: 100.0%;">     <b>BGI (Beijing Genomics)</b><br>     Shenzhen, China<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> genomics<br>     <b>Notes:</b> Genomics & sequencing     </div>`)[0];
+            popup_deb7352d09ec1f959e4cf87a4549d0ae.setContent(html_87f596f9f34907238df2d43d8bb60663);
+        
+
+        marker_049dbb9223f507b184c60676d5bb521b.bindPopup(popup_deb7352d09ec1f959e4cf87a4549d0ae)
+        ;
+
+        
+    
+    
+            var marker_eafc37022ce4292445cfd5445492e42a = L.marker(
+                [1.3521, 103.8198],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_b83c4d5105712ee7201b0a6e341b6481 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_eafc37022ce4292445cfd5445492e42a.setIcon(icon_b83c4d5105712ee7201b0a6e341b6481);
+        
+    
+        var popup_e93fd6040597c5d635eadc9bd634140c = L.popup({"maxWidth": 350});
+
+        
+            var html_b8dfa5f6d00f855b6755499dafbc7193 = $(`<div id="html_b8dfa5f6d00f855b6755499dafbc7193" style="width: 100.0%; height: 100.0%;">     <b>MiRXES</b><br>     Singapore, Singapore<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> miRNA diagnostics<br>     <b>Notes:</b> Diagnostics startup     </div>`)[0];
+            popup_e93fd6040597c5d635eadc9bd634140c.setContent(html_b8dfa5f6d00f855b6755499dafbc7193);
+        
+
+        marker_eafc37022ce4292445cfd5445492e42a.bindPopup(popup_e93fd6040597c5d635eadc9bd634140c)
+        ;
+
+        
+    
+    
+            var marker_056670f8e7ee46f74a50d869dbf5d836 = L.marker(
+                [1.3039, 103.788],
+                {}
+            ).addTo(marker_cluster_20250ed121091f0b65b00abf296fc1e6);
+        
+    
+            var icon_17417ce6a1ac57d17b89e0ff20b0a736 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_056670f8e7ee46f74a50d869dbf5d836.setIcon(icon_17417ce6a1ac57d17b89e0ff20b0a736);
+        
+    
+        var popup_4db0fbdc363319e02c6c3a4b8223727f = L.popup({"maxWidth": 350});
+
+        
+            var html_7aad036eb3935bbed91b2a27686b288a = $(`<div id="html_7aad036eb3935bbed91b2a27686b288a" style="width: 100.0%; height: 100.0%;">     <b>Veredus Laboratories</b><br>     Singapore, Singapore<br>     <b>Category:</b> Biotech/Tools<br>     <b>Tags:</b> diagnostics<br>     <b>Notes:</b> Diagnostics (Biopolis)     </div>`)[0];
+            popup_4db0fbdc363319e02c6c3a4b8223727f.setContent(html_7aad036eb3935bbed91b2a27686b288a);
+        
+
+        marker_056670f8e7ee46f74a50d869dbf5d836.bindPopup(popup_4db0fbdc363319e02c6c3a4b8223727f)
+        ;
+
+        
+    
+    
+            var feature_group_cb628251ee2591ed83a1e829a88f5b60 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_58142412fa0600a55445dd27dc4898ff = L.markerClusterGroup(
+                {}
+            );
+            feature_group_cb628251ee2591ed83a1e829a88f5b60.addLayer(marker_cluster_58142412fa0600a55445dd27dc4898ff);
+        
+    
+            var marker_c508b939224c66623d5a81c47ff3b3bf = L.marker(
+                [53.3498, -6.2603],
+                {}
+            ).addTo(marker_cluster_58142412fa0600a55445dd27dc4898ff);
+        
+    
+            var icon_86335995b41190fe3f0fcff06a44b23e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "darkpurple", "prefix": "fa"}
+            );
+            marker_c508b939224c66623d5a81c47ff3b3bf.setIcon(icon_86335995b41190fe3f0fcff06a44b23e);
+        
+    
+        var popup_05e8d72400bbc52061d716e5bd8ca8df = L.popup({"maxWidth": 350});
+
+        
+            var html_993af0b7a1a79eec8ae89e342a4aa958 = $(`<div id="html_993af0b7a1a79eec8ae89e342a4aa958" style="width: 100.0%; height: 100.0%;">     <b>ICON plc</b><br>     Dublin, Ireland<br>     <b>Category:</b> CRO<br>     <b>Tags:</b> clinical research<br>     <b>Notes:</b> Global CRO     </div>`)[0];
+            popup_05e8d72400bbc52061d716e5bd8ca8df.setContent(html_993af0b7a1a79eec8ae89e342a4aa958);
+        
+
+        marker_c508b939224c66623d5a81c47ff3b3bf.bindPopup(popup_05e8d72400bbc52061d716e5bd8ca8df)
+        ;
+
+        
+    
+    
+            var marker_1e0272bbdf194e54221d19045f5145a2 = L.marker(
+                [38.7223, -9.1393],
+                {}
+            ).addTo(marker_cluster_58142412fa0600a55445dd27dc4898ff);
+        
+    
+            var icon_db110d865567d02cd8b454469918d188 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "darkpurple", "prefix": "fa"}
+            );
+            marker_1e0272bbdf194e54221d19045f5145a2.setIcon(icon_db110d865567d02cd8b454469918d188);
+        
+    
+        var popup_e01b3ca9d10d8fd4c1655651ca0c01e2 = L.popup({"maxWidth": 350});
+
+        
+            var html_373e47d7ad6923f2f2b615663d427b44 = $(`<div id="html_373e47d7ad6923f2f2b615663d427b44" style="width: 100.0%; height: 100.0%;">     <b>Pharmiweb (example CRO)</b><br>     Lisbon, Portugal<br>     <b>Category:</b> CRO<br>     <b>Tags:</b> clinical services<br>     <b>Notes:</b> Example CRO presence     </div>`)[0];
+            popup_e01b3ca9d10d8fd4c1655651ca0c01e2.setContent(html_373e47d7ad6923f2f2b615663d427b44);
+        
+
+        marker_1e0272bbdf194e54221d19045f5145a2.bindPopup(popup_e01b3ca9d10d8fd4c1655651ca0c01e2)
+        ;
+
+        
+    
+    
+            var feature_group_f3307cdb403b0fa804f224a9c07720f9 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_64de7237f0f2dd4e82759ba8d613383e = L.markerClusterGroup(
+                {}
+            );
+            feature_group_f3307cdb403b0fa804f224a9c07720f9.addLayer(marker_cluster_64de7237f0f2dd4e82759ba8d613383e);
+        
+    
+            var marker_9c433140adcf7010e57b15c94b03ecee = L.marker(
+                [47.559, 7.5886],
+                {}
+            ).addTo(marker_cluster_64de7237f0f2dd4e82759ba8d613383e);
+        
+    
+            var icon_2f98ec8d8a6c64aeaa8eb4ab5ae07808 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "darkred", "prefix": "fa"}
+            );
+            marker_9c433140adcf7010e57b15c94b03ecee.setIcon(icon_2f98ec8d8a6c64aeaa8eb4ab5ae07808);
+        
+    
+        var popup_66be7ebc56103bcf169834367377796e = L.popup({"maxWidth": 350});
+
+        
+            var html_c543de997674ff38c3d214c5f4e66007 = $(`<div id="html_c543de997674ff38c3d214c5f4e66007" style="width: 100.0%; height: 100.0%;">     <b>Lonza</b><br>     Basel, Switzerland<br>     <b>Category:</b> CDMO<br>     <b>Tags:</b> biologics manufacturing<br>     <b>Notes:</b> Major CDMO (biologics)     </div>`)[0];
+            popup_66be7ebc56103bcf169834367377796e.setContent(html_c543de997674ff38c3d214c5f4e66007);
+        
+
+        marker_9c433140adcf7010e57b15c94b03ecee.bindPopup(popup_66be7ebc56103bcf169834367377796e)
+        ;
+
+        
+    
+    
+            var marker_b0c0a9d1c95e22df18601aba78a1acc0 = L.marker(
+                [37.3876, 126.6434],
+                {}
+            ).addTo(marker_cluster_64de7237f0f2dd4e82759ba8d613383e);
+        
+    
+            var icon_5a5dada10997c67d8e12095cb139e101 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "darkred", "prefix": "fa"}
+            );
+            marker_b0c0a9d1c95e22df18601aba78a1acc0.setIcon(icon_5a5dada10997c67d8e12095cb139e101);
+        
+    
+        var popup_55ea4dbb2061af57cf688888f65c6f73 = L.popup({"maxWidth": 350});
+
+        
+            var html_8a30655c0672fff7853c120fa1969bf8 = $(`<div id="html_8a30655c0672fff7853c120fa1969bf8" style="width: 100.0%; height: 100.0%;">     <b>Samsung Biologics</b><br>     Incheon (Songdo), Korea<br>     <b>Category:</b> CDMO<br>     <b>Tags:</b> biologics CDMO<br>     <b>Notes:</b> Major CDMO (biologics)     </div>`)[0];
+            popup_55ea4dbb2061af57cf688888f65c6f73.setContent(html_8a30655c0672fff7853c120fa1969bf8);
+        
+
+        marker_b0c0a9d1c95e22df18601aba78a1acc0.bindPopup(popup_55ea4dbb2061af57cf688888f65c6f73)
+        ;
+
+        
+    
+    
+            var marker_17c9978f40b3aa64b6dd7a797a7bf7b4 = L.marker(
+                [31.57, 120.305],
+                {}
+            ).addTo(marker_cluster_64de7237f0f2dd4e82759ba8d613383e);
+        
+    
+            var icon_f21cf82a2afb2511aaff1a63fa6f480a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "darkred", "prefix": "fa"}
+            );
+            marker_17c9978f40b3aa64b6dd7a797a7bf7b4.setIcon(icon_f21cf82a2afb2511aaff1a63fa6f480a);
+        
+    
+        var popup_8309acb4e7ee3fd462a7aa43c7535799 = L.popup({"maxWidth": 350});
+
+        
+            var html_b0a9cea40b200c4da02c4e83045865da = $(`<div id="html_b0a9cea40b200c4da02c4e83045865da" style="width: 100.0%; height: 100.0%;">     <b>WuXi Biologics</b><br>     Wuxi, China<br>     <b>Category:</b> CDMO<br>     <b>Tags:</b> biologics CDMO<br>     <b>Notes:</b> Biologics manufacturing     </div>`)[0];
+            popup_8309acb4e7ee3fd462a7aa43c7535799.setContent(html_b0a9cea40b200c4da02c4e83045865da);
+        
+
+        marker_17c9978f40b3aa64b6dd7a797a7bf7b4.bindPopup(popup_8309acb4e7ee3fd462a7aa43c7535799)
+        ;
+
+        
+    
+    
+            var feature_group_c37cbd9570af5947e97b7774b378c661 = L.featureGroup(
+                {}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+    
+            var marker_cluster_6e34a192047245ac3b9b536e04a89f21 = L.markerClusterGroup(
+                {}
+            );
+            feature_group_c37cbd9570af5947e97b7774b378c661.addLayer(marker_cluster_6e34a192047245ac3b9b536e04a89f21);
+        
+    
+            var marker_55b9d1725cffc876cf9abac3e0f9d81c = L.marker(
+                [47.6062, -122.3321],
+                {}
+            ).addTo(marker_cluster_6e34a192047245ac3b9b536e04a89f21);
+        
+    
+            var icon_e319f79a74e762013e70827c293f4255 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_55b9d1725cffc876cf9abac3e0f9d81c.setIcon(icon_e319f79a74e762013e70827c293f4255);
+        
+    
+        var popup_cb08f193b2e60961611fccb53b1ad301 = L.popup({"maxWidth": 350});
+
+        
+            var html_11f26e645d200be9139596d2e3ecaed0 = $(`<div id="html_11f26e645d200be9139596d2e3ecaed0" style="width: 100.0%; height: 100.0%;">     <b>Amazon</b><br>     Seattle, USA<br>     <b>Category:</b> Health Services/IT<br>     <b>Tags:</b> One Medical, Pharmacy, telehealth<br>     <b>Notes:</b> Service-led health (pharmacy, clinics, telehealth)     </div>`)[0];
+            popup_cb08f193b2e60961611fccb53b1ad301.setContent(html_11f26e645d200be9139596d2e3ecaed0);
+        
+
+        marker_55b9d1725cffc876cf9abac3e0f9d81c.bindPopup(popup_cb08f193b2e60961611fccb53b1ad301)
+        ;
+
+        
+    
+    
+            var marker_12283394bd2d52c23e41415ca24c2e7c = L.marker(
+                [47.6731, -122.1215],
+                {}
+            ).addTo(marker_cluster_6e34a192047245ac3b9b536e04a89f21);
+        
+    
+            var icon_d1ed71bed1cfc68c7c4c672cee4e2f2c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_12283394bd2d52c23e41415ca24c2e7c.setIcon(icon_d1ed71bed1cfc68c7c4c672cee4e2f2c);
+        
+    
+        var popup_dfa1143abc282695eaeb34fe80756021 = L.popup({"maxWidth": 350});
+
+        
+            var html_86bc507b927a552b27ddc6f50a85c508 = $(`<div id="html_86bc507b927a552b27ddc6f50a85c508" style="width: 100.0%; height: 100.0%;">     <b>Microsoft</b><br>     Redmond, USA<br>     <b>Category:</b> Health Services/IT<br>     <b>Tags:</b> Azure for Health, Nuance, enterprise<br>     <b>Notes:</b> Cloud/AI backbone for healthcare     </div>`)[0];
+            popup_dfa1143abc282695eaeb34fe80756021.setContent(html_86bc507b927a552b27ddc6f50a85c508);
+        
+
+        marker_12283394bd2d52c23e41415ca24c2e7c.bindPopup(popup_dfa1143abc282695eaeb34fe80756021)
+        ;
+
+        
+    
+    
+            var marker_b1a26a5afa7233ec90a56fd0b9835ea9 = L.marker(
+                [32.321, 34.853],
+                {}
+            ).addTo(marker_cluster_6e34a192047245ac3b9b536e04a89f21);
+        
+    
+            var icon_88587022a4295ef376b2e8d27276b2fd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_b1a26a5afa7233ec90a56fd0b9835ea9.setIcon(icon_88587022a4295ef376b2e8d27276b2fd);
+        
+    
+        var popup_4344467985a30c6d3ba3b0d8fa449812 = L.popup({"maxWidth": 350});
+
+        
+            var html_12f5caa3b2d1ce4b593e9f6c5465a03a = $(`<div id="html_12f5caa3b2d1ce4b593e9f6c5465a03a" style="width: 100.0%; height: 100.0%;">     <b>TytoCare</b><br>     Netanya, Israel<br>     <b>Category:</b> Health Services/IT<br>     <b>Tags:</b> home exam, telehealth<br>     <b>Notes:</b> Remote exam kits     </div>`)[0];
+            popup_4344467985a30c6d3ba3b0d8fa449812.setContent(html_12f5caa3b2d1ce4b593e9f6c5465a03a);
+        
+
+        marker_b1a26a5afa7233ec90a56fd0b9835ea9.bindPopup(popup_4344467985a30c6d3ba3b0d8fa449812)
+        ;
+
+        
+    
+    
+            var layer_control_33a07b613eea86da6f91bdb7666fc417 = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_7ace4f2858e3a1b0a03f63935cf6051c,
+                },
+                overlays :  {
+                    "Wearable/Tech" : feature_group_97f6caf07aec4c3a6e70afe7f5eb7e01,
+                    "CRO/CDMO" : feature_group_e58b9b8cea7f2a89ab6501dbecdcee82,
+                    "Biotech/Pharma" : feature_group_338fdb6672d66b3f35bfbd35aa347fa1,
+                    "MedTech/Devices" : feature_group_97808148fc5eb1c1f784b1dfd5585b57,
+                    "EEG/BCI" : feature_group_a63d444b68b6fedd6c1fd46dd5f84265,
+                    "Biotech/Tools" : feature_group_1b799c4d33f5c4477811839eacc93391,
+                    "CRO" : feature_group_cb628251ee2591ed83a1e829a88f5b60,
+                    "CDMO" : feature_group_f3307cdb403b0fa804f224a9c07720f9,
+                    "Health Services/IT" : feature_group_c37cbd9570af5947e97b7774b378c661,
+                },
+            };
+            L.control.layers(
+                layer_control_33a07b613eea86da6f91bdb7666fc417.base_layers,
+                layer_control_33a07b613eea86da6f91bdb7666fc417.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_170484afd410d558b0825c6c90f78ffc);
+        
+</script>
+</html>

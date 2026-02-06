@@ -1,0 +1,108 @@
+{
+  "startups": [
+    {
+      "name": "OpenAI",
+      "description": "AI 연구 및 개발 기업, ChatGPT 개발사",
+      "location": "San Francisco, CA",
+      "industry": "Artificial Intelligence",
+      "founded": "2015",
+      "funding": "Series Unknown",
+      "website": "https://openai.com",
+      "source": "Manual Data",
+      "type": "startup",
+      "crawled_at": "2025-09-04T09:30:11.148888"
+    },
+    {
+      "name": "Stripe",
+      "description": "온라인 결제 처리 플랫폼",
+      "location": "San Francisco, CA",
+      "industry": "Fintech",
+      "founded": "2010",
+      "funding": "Series Unknown",
+      "website": "https://stripe.com",
+      "source": "Manual Data",
+      "type": "startup",
+      "crawled_at": "2025-09-04T09:30:11.148893"
+    },
+    {
+      "name": "Notion",
+      "description": "협업 및 생산성 도구",
+      "location": "San Francisco, CA",
+      "industry": "Productivity",
+      "founded": "2013",
+      "funding": "Series Unknown",
+      "website": "https://notion.so",
+      "source": "Manual Data",
+      "type": "startup",
+      "crawled_at": "2025-09-04T09:30:11.148894"
+    },
+    {
+      "name": "Figma",
+      "description": "협업 디자인 도구",
+      "location": "San Francisco, CA",
+      "industry": "Design",
+      "founded": "2012",
+      "funding": "Series Unknown",
+      "website": "https://figma.com",
+      "source": "Manual Data",
+      "type": "startup",
+      "crawled_at": "2025-09-04T09:30:11.148895"
+    },
+    {
+      "name": "Canva",
+      "description": "온라인 디자인 플랫폼",
+      "location": "Sydney, Australia",
+      "industry": "Design",
+      "founded": "2012",
+      "funding": "Series Unknown",
+      "website": "https://canva.com",
+      "source": "Manual Data",
+      "type": "startup",
+      "crawled_at": "2025-09-04T09:30:11.148896"
+    }
+  ],
+  "investors": [
+    {
+      "name": "Sequoia Capital",
+      "description": "실리콘밸리의 대표적인 벤처캐피탈",
+      "location": "Menlo Park, CA",
+      "focus": "Technology, Healthcare, Consumer",
+      "website": "https://www.sequoiacap.com",
+      "source": "Manual Data",
+      "type": "investor",
+      "crawled_at": "2025-09-04T09:30:11.148948"
+    },
+    {
+      "name": "Andreessen Horowitz",
+      "description": "기술 중심의 벤처캐피탈",
+      "location": "Menlo Park, CA",
+      "focus": "Software, Internet, Mobile",
+      "website": "https://a16z.com",
+      "source": "Manual Data",
+      "type": "investor",
+      "crawled_at": "2025-09-04T09:30:11.148949"
+    },
+    {
+      "name": "Y Combinator",
+      "description": "스타트업 액셀러레이터",
+      "location": "Mountain View, CA",
+      "focus": "Early-stage startups",
+      "website": "https://www.ycombinator.com",
+      "source": "Manual Data",
+      "type": "investor",
+      "crawled_at": "2025-09-04T09:30:11.148950"
+    }
+  ],
+  "accelerators": [],
+  "coworking_spaces": [],
+  "events": [],
+  "crawled_at": "2025-09-04T09:25:13.137490",
+  "statistics": {
+    "total_startups": 5,
+    "total_investors": 3,
+    "total_accelerators": 0,
+    "total_coworking_spaces": 0,
+    "total_events": 0,
+    "total_entities": 8
+  }
+}

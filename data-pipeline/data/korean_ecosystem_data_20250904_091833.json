@@ -1,0 +1,128 @@
+{
+  "startups": [
+    {
+      "name": "techforkorea",
+      "description": "",
+      "website": "https://ads.naver.com/sa",
+      "category": "스타트업",
+      "source": "플래텀",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:16:50.487733"
+    }
+  ],
+  "investors": [],
+  "accelerators": [
+    {
+      "name": "더벤처스",
+      "description": "한국의 대표적인 벤처캐피탈 및 액셀러레이터",
+      "location": "서울",
+      "website": "https://www.theventures.co.kr",
+      "focus": "IT, 바이오, 게임 등",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194624"
+    },
+    {
+      "name": "스마일게이트인베스트먼트",
+      "description": "게임 및 IT 분야 투자 전문 액셀러레이터",
+      "location": "서울",
+      "website": "https://www.smilegate.com",
+      "focus": "게임, IT, 엔터테인먼트",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194629"
+    },
+    {
+      "name": "네이버 D2SF",
+      "description": "네이버의 스타트업 지원 프로그램",
+      "location": "성남",
+      "website": "https://d2.naver.com",
+      "focus": "AI, 빅데이터, 모바일",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194630"
+    },
+    {
+      "name": "카카오벤처스",
+      "description": "카카오의 벤처캐피탈 및 액셀러레이터",
+      "location": "제주",
+      "website": "https://ventures.kakao.com",
+      "focus": "모바일, 소셜, AI",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194631"
+    },
+    {
+      "name": "LG노트",
+      "description": "LG의 스타트업 지원 프로그램",
+      "location": "서울",
+      "website": "https://www.lgnot.com",
+      "focus": "IoT, AI, 로봇",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194632"
+    }
+  ],
+  "coworking_spaces": [
+    {
+      "name": "위워크",
+      "description": "글로벌 코워킹 스페이스 체인",
+      "location": "서울 강남구",
+      "website": "https://www.wework.com",
+      "focus": "스타트업, 프리랜서, 중소기업",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194683"
+    },
+    {
+      "name": "스파크플러스",
+      "description": "한국의 대표적인 코워킹 스페이스",
+      "location": "서울 강남구",
+      "website": "https://www.sparkplus.co.kr",
+      "focus": "스타트업, 투자사, 액셀러레이터",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194684"
+    },
+    {
+      "name": "마루180",
+      "description": "서울 창업허브의 대표적인 코워킹 스페이스",
+      "location": "서울 마포구",
+      "website": "https://maru180.com",
+      "focus": "창업, 소셜벤처, 사회혁신",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194686"
+    },
+    {
+      "name": "판교테크노밸리",
+      "description": "한국의 실리콘밸리라 불리는 IT 클러스터",
+      "location": "경기도 성남시",
+      "website": "https://www.pangyo.or.kr",
+      "focus": "IT, 바이오, 나노기술",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2025-09-04T09:18:33.194687"
+    }
+  ],
+  "news": [],
+  "crawled_at": "2025-09-04T09:16:40.819368",
+  "statistics": {
+    "total_startups": 1,
+    "total_investors": 0,
+    "total_accelerators": 5,
+    "total_coworking_spaces": 4,
+    "total_news": 0,
+    "total_entities": 10
+  }
+}

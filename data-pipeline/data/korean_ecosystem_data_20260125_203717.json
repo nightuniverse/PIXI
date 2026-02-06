@@ -1,0 +1,293 @@
+{
+  "startups": [
+    {
+      "name": "techforkorea",
+      "description": "",
+      "website": "https://ads.naver.com/sa",
+      "category": "스타트업",
+      "source": "플래텀",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:34:23.578874"
+    },
+    {
+      "name": "카카오",
+      "description": "모바일 플랫폼 및 서비스 기업",
+      "location": "제주",
+      "website": "https://www.kakaocorp.com",
+      "category": "플랫폼",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272091"
+    },
+    {
+      "name": "네이버",
+      "description": "인터넷 포털 및 IT 서비스 기업",
+      "location": "성남",
+      "website": "https://www.naver.com",
+      "category": "플랫폼",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272101"
+    },
+    {
+      "name": "쿠팡",
+      "description": "이커머스 플랫폼",
+      "location": "서울",
+      "website": "https://www.coupang.com",
+      "category": "이커머스",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272103"
+    },
+    {
+      "name": "배달의민족",
+      "description": "배달 주문 플랫폼",
+      "location": "서울",
+      "website": "https://www.baemin.com",
+      "category": "배달",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272106"
+    },
+    {
+      "name": "토스",
+      "description": "핀테크 서비스",
+      "location": "서울",
+      "website": "https://www.toss.im",
+      "category": "핀테크",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272108"
+    },
+    {
+      "name": "당근마켓",
+      "description": "중고거래 플랫폼",
+      "location": "서울",
+      "website": "https://www.daangn.com",
+      "category": "중고거래",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272110"
+    },
+    {
+      "name": "야놀자",
+      "description": "여행 및 숙박 예약 플랫폼",
+      "location": "서울",
+      "website": "https://www.yanolja.com",
+      "category": "여행",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272113"
+    },
+    {
+      "name": "무신사",
+      "description": "패션 이커머스 플랫폼",
+      "location": "서울",
+      "website": "https://www.musinsa.com",
+      "category": "패션",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272117"
+    },
+    {
+      "name": "라인",
+      "description": "메신저 및 플랫폼 서비스",
+      "location": "서울",
+      "website": "https://line.me",
+      "category": "메신저",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272120"
+    },
+    {
+      "name": "스타일쉐어",
+      "description": "패션 렌탈 플랫폼",
+      "location": "서울",
+      "website": "https://www.styleshare.kr",
+      "category": "패션",
+      "source": "Manual Data",
+      "type": "startup",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272122"
+    }
+  ],
+  "investors": [],
+  "accelerators": [
+    {
+      "name": "더벤처스",
+      "description": "한국의 대표적인 벤처캐피탈 및 액셀러레이터",
+      "location": "서울",
+      "website": "https://www.theventures.co.kr",
+      "focus": "IT, 바이오, 게임 등",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272778"
+    },
+    {
+      "name": "스마일게이트인베스트먼트",
+      "description": "게임 및 IT 분야 투자 전문 액셀러레이터",
+      "location": "서울",
+      "website": "https://www.smilegate.com",
+      "focus": "게임, IT, 엔터테인먼트",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272839"
+    },
+    {
+      "name": "네이버 D2SF",
+      "description": "네이버의 스타트업 지원 프로그램",
+      "location": "성남",
+      "website": "https://d2.naver.com",
+      "focus": "AI, 빅데이터, 모바일",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272843"
+    },
+    {
+      "name": "카카오벤처스",
+      "description": "카카오의 벤처캐피탈 및 액셀러레이터",
+      "location": "제주",
+      "website": "https://ventures.kakao.com",
+      "focus": "모바일, 소셜, AI",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272846"
+    },
+    {
+      "name": "LG노트",
+      "description": "LG의 스타트업 지원 프로그램",
+      "location": "서울",
+      "website": "https://www.lgnot.com",
+      "focus": "IoT, AI, 로봇",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272848"
+    },
+    {
+      "name": "스파크랩",
+      "description": "네이버의 스타트업 액셀러레이터",
+      "location": "성남",
+      "website": "https://sparklab.co.kr",
+      "focus": "AI, 빅데이터, 모바일",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272851"
+    },
+    {
+      "name": "카카오인베스트먼트",
+      "description": "카카오의 투자 전담 회사",
+      "location": "서울",
+      "website": "https://www.kakao.com/investment",
+      "focus": "모바일, 소셜, AI, 콘텐츠",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272853"
+    },
+    {
+      "name": "네이버 D2SF",
+      "description": "네이버의 스타트업 지원 프로그램",
+      "location": "성남",
+      "website": "https://d2.naver.com",
+      "focus": "AI, 빅데이터, 모바일",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272857"
+    },
+    {
+      "name": "벤처스퀘어",
+      "description": "스타트업 액셀러레이터 및 코워킹 스페이스",
+      "location": "서울",
+      "website": "https://venturesquare.net",
+      "focus": "스타트업, 창업 지원",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272860"
+    },
+    {
+      "name": "플러스엑스",
+      "description": "LG의 스타트업 액셀러레이터",
+      "location": "서울",
+      "website": "https://plusx.co.kr",
+      "focus": "IoT, AI, 로봇, 스마트홈",
+      "source": "Manual Data",
+      "type": "accelerator",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.272863"
+    }
+  ],
+  "coworking_spaces": [
+    {
+      "name": "위워크",
+      "description": "글로벌 코워킹 스페이스 체인",
+      "location": "서울 강남구",
+      "website": "https://www.wework.com",
+      "focus": "스타트업, 프리랜서, 중소기업",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.273017"
+    },
+    {
+      "name": "스파크플러스",
+      "description": "한국의 대표적인 코워킹 스페이스",
+      "location": "서울 강남구",
+      "website": "https://www.sparkplus.co.kr",
+      "focus": "스타트업, 투자사, 액셀러레이터",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.273021"
+    },
+    {
+      "name": "마루180",
+      "description": "서울 창업허브의 대표적인 코워킹 스페이스",
+      "location": "서울 마포구",
+      "website": "https://maru180.com",
+      "focus": "창업, 소셜벤처, 사회혁신",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.273023"
+    },
+    {
+      "name": "판교테크노밸리",
+      "description": "한국의 실리콘밸리라 불리는 IT 클러스터",
+      "location": "경기도 성남시",
+      "website": "https://www.pangyo.or.kr",
+      "focus": "IT, 바이오, 나노기술",
+      "source": "Manual Data",
+      "type": "coworking_space",
+      "country": "한국",
+      "crawled_at": "2026-01-25T20:37:17.273026"
+    }
+  ],
+  "news": [],
+  "crawled_at": "2026-01-25T20:34:16.848410",
+  "statistics": {
+    "total_startups": 11,
+    "total_investors": 0,
+    "total_accelerators": 10,
+    "total_coworking_spaces": 4,
+    "total_news": 0,
+    "total_entities": 25
+  }
+}

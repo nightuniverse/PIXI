@@ -1,0 +1,33 @@
+{
+  "analysis_timestamp": "2025-09-04T09:59:15.212931",
+  "data_source": "merged_ecosystem_data",
+  "summary": {
+    "total_unique_startups": 1,
+    "total_unique_investors": 0,
+    "total_unique_accelerators": 5,
+    "total_unique_coworking_spaces": 4,
+    "total_unique_events": 0
+  },
+  "korean_ecosystem": {
+    "total_startups": 1,
+    "total_investors": 0,
+    "total_accelerators": 5,
+    "total_coworking_spaces": 4,
+    "total_news": 0,
+    "total_entities": 10
+  },
+  "global_ecosystem": {
+    "total_startups": 0,
+    "total_investors": 0,
+    "total_accelerators": 0,
+    "total_coworking_spaces": 0,
+    "total_events": 0,
+    "total_entities": 0
+  },
+  "analysis_notes": [
+    "한국 생태계 데이터는 안정적으로 수집됨",
+    "글로벌 데이터 수집은 웹사이트 차단으로 제한적",
+    "액셀러레이터와 코워킹 스페이스 정보가 풍부함",
+    "정기적인 데이터 업데이트 필요"
+  ]
+}
