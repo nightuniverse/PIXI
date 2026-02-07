@@ -22,12 +22,103 @@ interface MarketAnalysis {
   differentiationPoints: string[]
 }
 
+interface GPTAnalysis {
+  idea_summary: string
+  market_analysis: string
+  target_customers: Array<{
+    segment: string
+    size?: string
+    pain_points: string[]
+    willingness_to_pay?: string
+  }>
+  competitor_analysis?: Array<{
+    competitor_name: string
+    strengths: string[]
+    weaknesses: string[]
+    market_position?: string
+    opportunity_gap?: string
+  }>
+  business_models: Array<{
+    model_type: string
+    description: string
+    revenue_streams: Array<{
+      stream: string
+      description: string
+      expected_revenue?: string
+    }>
+    pricing_strategy?: string
+    unit_economics?: string
+  }>
+  recommended_model: {
+    model_type: string
+    description: string
+    revenue_streams: Array<{
+      stream: string
+      description: string
+      expected_revenue?: string
+    }> | string[]
+    pricing_strategy?: string
+    first_year_revenue_target?: string
+    break_even_timeline?: string
+  }
+  korean_market_specifics?: {
+    government_policies?: string
+    regulations?: string
+    market_characteristics?: string
+    investment_trends?: string
+  }
+  opportunities: Array<{
+    opportunity: string
+    market_size?: string
+    growth_potential: string
+    entry_barriers: string[]
+    time_window?: string
+  }>
+  competitive_advantages: Array<{
+    advantage: string
+    sustainability: string
+    moat_strength: string
+    defensibility?: string
+  }>
+  risks: Array<{
+    risk: string
+    probability: string
+    impact: string
+    mitigation: string
+    contingency_plan?: string
+  }>
+  action_plan: Array<{
+    phase: string
+    timeline: string
+    key_actions: string[]
+    success_metrics: string[]
+    budget?: string
+  }>
+  investment_perspective?: {
+    investability: string
+    valuation_estimate?: string
+    funding_needs?: string
+    investor_fit?: string
+    key_metrics_for_investors?: string[]
+  }
+  key_insights: string[]
+  next_steps: string[]
+  failure_cases?: Array<{
+    case: string
+    failure_reason: string
+    lesson: string
+  }>
+}
+
 export default function StartupIdeaAnalyzer() {
   const [data, setData] = useState<{ startups: Entity[] } | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>('')
   const [userIdea, setUserIdea] = useState<string>('')
   const [analysis, setAnalysis] = useState<MarketAnalysis | null>(null)
+  const [gptAnalysis, setGptAnalysis] = useState<GPTAnalysis | null>(null)
   const [loading, setLoading] = useState(true)
+  const [gptLoading, setGptLoading] = useState(false)
+  const [showGPTAnalysis, setShowGPTAnalysis] = useState(false)
 
   useEffect(() => {
     // 데이터 로드
@@ -317,9 +408,56 @@ export default function StartupIdeaAnalyzer() {
     } else {
       // 카테고리가 없으면 분석 초기화
       setAnalysis(null)
+      setGptAnalysis(null)
+      setShowGPTAnalysis(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory, data, userIdea])
+
+  // GPT 분석 요청
+  const requestGPTAnalysis = async () => {
+    if (!selectedCategory) return
+    
+    setGptLoading(true)
+    setShowGPTAnalysis(true)
+    
+    try {
+      // 시장 데이터 준비
+      const marketData = analysis ? {
+        total_companies: analysis.totalCompanies,
+        competitors: analysis.topCompanies.map(c => ({
+          name: c.name,
+          description: c.description,
+          location: c.location
+        })),
+        locations: analysis.byLocation
+      } : {}
+      
+      const response = await fetch('http://localhost:8000/api/v1/startup-advisor/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          category: selectedCategory,
+          idea_description: userIdea,
+          market_data: marketData
+        })
+      })
+      
+      if (!response.ok) {
+        throw new Error('GPT 분석 요청 실패')
+      }
+      
+      const result = await response.json()
+      setGptAnalysis(result)
+    } catch (error) {
+      console.error('GPT 분석 오류:', error)
+      alert('GPT 분석을 불러오는 중 오류가 발생했습니다. 백엔드 서버가 실행 중인지 확인해주세요.')
+    } finally {
+      setGptLoading(false)
+    }
+  }
 
   if (loading) {
     return (
@@ -499,6 +637,483 @@ export default function StartupIdeaAnalyzer() {
               ))}
             </ul>
           </div>
+
+          {/* GPT 분석 버튼 */}
+          <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">🤖</span>
+                  AI 심화 분석
+                </h2>
+                <p className="text-gray-600">
+                  GPT-4o를 활용한 종합적인 비즈니스 분석을 받아보세요
+                </p>
+              </div>
+              <button
+                onClick={requestGPTAnalysis}
+                disabled={gptLoading}
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {gptLoading ? (
+                  <span className="flex items-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    분석 중...
+                  </span>
+                ) : (
+                  '심화 분석 시작'
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* GPT 분석 결과 */}
+      {showGPTAnalysis && (
+        <div className="space-y-6">
+          {gptLoading ? (
+            <div className="bg-white rounded-xl shadow-lg p-12 text-center">
+              <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-600 mx-auto mb-4"></div>
+              <p className="text-gray-600">AI가 아이디어를 분석하고 있습니다...</p>
+            </div>
+          ) : gptAnalysis ? (
+            <>
+              {/* 아이디어 요약 */}
+              <div className="bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-2">💡</span>
+                  아이디어 요약
+                </h2>
+                <p className="text-gray-700 text-lg leading-relaxed">{gptAnalysis.idea_summary}</p>
+              </div>
+
+              {/* 시장 분석 */}
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">시장 분석</h2>
+                <div className="prose max-w-none">
+                  <p className="text-gray-700 whitespace-pre-line">{gptAnalysis.market_analysis}</p>
+                </div>
+              </div>
+
+              {/* 타겟 고객 */}
+              {gptAnalysis.target_customers && gptAnalysis.target_customers.length > 0 && (
+                <div className="bg-white rounded-xl shadow-lg p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">타겟 고객</h2>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {gptAnalysis.target_customers.map((customer, idx) => {
+                      // 기존 형식(문자열)과 새로운 형식(객체) 모두 처리
+                      const isString = typeof customer === 'string'
+                      const segment = isString ? customer : (customer?.segment || '')
+                      const size = isString ? null : (customer?.size || null)
+                      const painPoints = isString ? [] : (customer?.pain_points || [])
+                      const willingnessToPay = isString ? null : (customer?.willingness_to_pay || null)
+                      
+                      return (
+                        <div key={idx} className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                          <h3 className="font-semibold text-gray-900 mb-2">{segment}</h3>
+                          {size && (
+                            <p className="text-sm text-gray-600 mb-2">📊 규모: {size}</p>
+                          )}
+                          {painPoints && painPoints.length > 0 && (
+                            <div className="mb-2">
+                              <p className="text-sm font-medium text-gray-700 mb-1">페인 포인트:</p>
+                              <ul className="list-disc list-inside space-y-1">
+                                {painPoints.map((pain, pIdx) => (
+                                  <li key={pIdx} className="text-sm text-gray-600">{pain}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {willingnessToPay && (
+                            <p className="text-sm text-gray-600">💰 지불 의향: {willingnessToPay}</p>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* 경쟁사 분석 */}
+              {gptAnalysis.competitor_analysis && gptAnalysis.competitor_analysis.length > 0 && (
+                <div className="bg-white rounded-xl shadow-lg p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">경쟁사 분석</h2>
+                  <div className="space-y-6">
+                    {gptAnalysis.competitor_analysis.map((comp, idx) => (
+                      <div key={idx} className="border border-gray-200 rounded-lg p-6">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4">{comp.competitor_name}</h3>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div>
+                            <h4 className="font-semibold text-green-700 mb-2">강점</h4>
+                            <ul className="list-disc list-inside space-y-1">
+                              {(comp.strengths || []).map((s, sIdx) => (
+                                <li key={sIdx} className="text-sm text-gray-700">{s}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-red-700 mb-2">약점</h4>
+                            <ul className="list-disc list-inside space-y-1">
+                              {(comp.weaknesses || []).map((w, wIdx) => (
+                                <li key={wIdx} className="text-sm text-gray-700">{w}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        {comp.market_position && (
+                          <p className="mt-3 text-sm text-gray-600">📍 시장 포지션: {comp.market_position}</p>
+                        )}
+                        {comp.opportunity_gap && (
+                          <div className="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                            <p className="text-sm font-medium text-gray-900">💡 놓치고 있는 기회:</p>
+                            <p className="text-sm text-gray-700">{comp.opportunity_gap}</p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 한국 시장 특화 정보 */}
+              {gptAnalysis.korean_market_specifics && (
+                <div className="bg-gradient-to-r from-red-50 to-blue-50 border border-red-200 rounded-xl p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span className="mr-2">🇰🇷</span>
+                    한국 시장 특화 정보
+                  </h2>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {gptAnalysis.korean_market_specifics.government_policies && (
+                      <div className="bg-white rounded-lg p-4 border border-gray-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">정부 정책</h3>
+                        <p className="text-sm text-gray-700">{gptAnalysis.korean_market_specifics.government_policies}</p>
+                      </div>
+                    )}
+                    {gptAnalysis.korean_market_specifics.regulations && (
+                      <div className="bg-white rounded-lg p-4 border border-gray-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">주의 규제</h3>
+                        <p className="text-sm text-gray-700">{gptAnalysis.korean_market_specifics.regulations}</p>
+                      </div>
+                    )}
+                    {gptAnalysis.korean_market_specifics.market_characteristics && (
+                      <div className="bg-white rounded-lg p-4 border border-gray-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">시장 특성</h3>
+                        <p className="text-sm text-gray-700">{gptAnalysis.korean_market_specifics.market_characteristics}</p>
+                      </div>
+                    )}
+                    {gptAnalysis.korean_market_specifics.investment_trends && (
+                      <div className="bg-white rounded-lg p-4 border border-gray-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">투자 트렌드</h3>
+                        <p className="text-sm text-gray-700">{gptAnalysis.korean_market_specifics.investment_trends}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* 추천 비즈니스 모델 */}
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">추천 비즈니스 모델</h2>
+                <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border border-purple-200">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {gptAnalysis.recommended_model.model_type}
+                  </h3>
+                  <p className="text-gray-700 mb-4">{gptAnalysis.recommended_model.description}</p>
+                  
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">수익원:</h4>
+                    <ul className="list-disc list-inside space-y-2">
+                      {(gptAnalysis.recommended_model.revenue_streams || []).map((stream, idx) => {
+                        const streamObj = typeof stream === 'string' 
+                          ? { stream, description: '', expected_revenue: '' } 
+                          : (stream || { stream: '', description: '', expected_revenue: '' })
+                        return (
+                          <li key={idx} className="text-gray-700">
+                            <span className="font-medium">{streamObj.stream || stream}</span>
+                            {streamObj.description && <span className="text-sm text-gray-600"> - {streamObj.description}</span>}
+                            {streamObj.expected_revenue && <span className="text-sm text-blue-600 ml-2">({streamObj.expected_revenue})</span>}
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>
+                  
+                  {gptAnalysis.recommended_model.pricing_strategy && (
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-gray-900 mb-2">가격 전략:</h4>
+                      <p className="text-gray-700">{gptAnalysis.recommended_model.pricing_strategy}</p>
+                    </div>
+                  )}
+                  
+                  {gptAnalysis.recommended_model.first_year_revenue_target && (
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-gray-900 mb-2">첫 해 목표 매출:</h4>
+                      <p className="text-lg font-semibold text-blue-600">{gptAnalysis.recommended_model.first_year_revenue_target}</p>
+                    </div>
+                  )}
+                  
+                  {gptAnalysis.recommended_model.break_even_timeline && (
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">손익분기점:</h4>
+                      <p className="text-gray-700">{gptAnalysis.recommended_model.break_even_timeline}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* 시장 기회 */}
+              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-2">💎</span>
+                  시장 기회
+                </h2>
+                <div className="space-y-4">
+                  {gptAnalysis.opportunities.map((opp, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-6 border border-yellow-200">
+                      <h3 className="font-semibold text-gray-900 mb-2">{opp.opportunity}</h3>
+                      {opp.market_size && (
+                        <p className="text-sm text-gray-600 mb-2">📊 시장 규모: {opp.market_size}</p>
+                      )}
+                      <p className="text-sm text-gray-600 mb-2">📈 성장 잠재력: {opp.growth_potential}</p>
+                      {(opp.entry_barriers || []).length > 0 && (
+                        <div className="mt-3">
+                          <p className="text-sm font-medium text-gray-700 mb-1">진입 장벽:</p>
+                          <ul className="list-disc list-inside space-y-1">
+                            {opp.entry_barriers.map((barrier, bIdx) => (
+                              <li key={bIdx} className="text-sm text-gray-600">{barrier}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {opp.time_window && (
+                        <p className="mt-2 text-sm text-orange-600 font-medium">⏰ 기회의 시간: {opp.time_window}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 경쟁 우위 */}
+              <div className="bg-green-50 border border-green-200 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-2">🛡️</span>
+                  경쟁 우위
+                </h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {gptAnalysis.competitive_advantages.map((adv, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-6 border border-green-200">
+                      <h3 className="font-semibold text-gray-900 mb-2">{adv.advantage}</h3>
+                      <p className="text-sm text-gray-600 mb-2">{adv.sustainability}</p>
+                      <div className="mt-2">
+                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                          adv.moat_strength === 'strong' ? 'bg-green-200 text-green-800' :
+                          adv.moat_strength === 'medium' ? 'bg-yellow-200 text-yellow-800' :
+                          'bg-gray-200 text-gray-800'
+                        }`}>
+                          방어력: {adv.moat_strength === 'strong' ? '강함' : adv.moat_strength === 'medium' ? '중간' : '약함'}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 리스크 분석 */}
+              <div className="bg-red-50 border border-red-200 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-2">⚠️</span>
+                  리스크 분석
+                </h2>
+                <div className="space-y-4">
+                  {gptAnalysis.risks.map((risk, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-6 border border-red-200">
+                      <h3 className="font-semibold text-gray-900 mb-2">{risk.risk}</h3>
+                      <div className="flex gap-4 mb-3">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          risk.probability === 'high' ? 'bg-red-200 text-red-800' :
+                          risk.probability === 'medium' ? 'bg-yellow-200 text-yellow-800' :
+                          'bg-green-200 text-green-800'
+                        }`}>
+                          발생 확률: {risk.probability === 'high' ? '높음' : risk.probability === 'medium' ? '중간' : '낮음'}
+                        </span>
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          risk.impact === 'high' ? 'bg-red-200 text-red-800' :
+                          risk.impact === 'medium' ? 'bg-yellow-200 text-yellow-800' :
+                          'bg-green-200 text-green-800'
+                        }`}>
+                          영향도: {risk.impact === 'high' ? '높음' : risk.impact === 'medium' ? '중간' : '낮음'}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-700 mb-2">
+                        <span className="font-medium">완화 방안:</span> {risk.mitigation}
+                      </p>
+                      {risk.contingency_plan && (
+                        <p className="text-sm text-gray-600">
+                          <span className="font-medium">대비 계획:</span> {risk.contingency_plan}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 실행 계획 */}
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-2">📋</span>
+                  실행 계획
+                </h2>
+                <div className="space-y-6">
+                  {gptAnalysis.action_plan.map((plan, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-6 border border-blue-200">
+                      <div className="flex items-start justify-between mb-4">
+                        <h3 className="text-xl font-semibold text-gray-900">{plan.phase}</h3>
+                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                          {plan.timeline}
+                        </span>
+                      </div>
+                      
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">핵심 액션:</h4>
+                          <ul className="list-disc list-inside space-y-1">
+                            {(plan.key_actions || []).map((action, aIdx) => (
+                              <li key={aIdx} className="text-gray-700">{action}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-gray-900 mb-2">성공 지표:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {(plan.success_metrics || []).map((metric, mIdx) => (
+                            <span key={mIdx} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                              {metric}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {plan.budget && (
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-2">필요 예산:</h4>
+                          <p className="text-lg font-semibold text-green-600">{plan.budget}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 핵심 인사이트 */}
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-2">💎</span>
+                  핵심 인사이트
+                </h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {gptAnalysis.key_insights.map((insight, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-4 border border-indigo-200">
+                      <p className="text-gray-700">{insight}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 투자자 관점 */}
+              {gptAnalysis.investment_perspective && (
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span className="mr-2">💰</span>
+                    투자자 관점
+                  </h2>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-indigo-200">
+                      <h3 className="font-semibold text-gray-900 mb-2">투자 가능성</h3>
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        gptAnalysis.investment_perspective.investability === 'high' ? 'bg-green-200 text-green-800' :
+                        gptAnalysis.investment_perspective.investability === 'medium' ? 'bg-yellow-200 text-yellow-800' :
+                        'bg-red-200 text-red-800'
+                      }`}>
+                        {gptAnalysis.investment_perspective.investability === 'high' ? '높음' :
+                         gptAnalysis.investment_perspective.investability === 'medium' ? '중간' : '낮음'}
+                      </span>
+                    </div>
+                    {gptAnalysis.investment_perspective.valuation_estimate && (
+                      <div className="bg-white rounded-lg p-4 border border-indigo-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">예상 밸류에이션</h3>
+                        <p className="text-lg font-semibold text-indigo-600">{gptAnalysis.investment_perspective.valuation_estimate}</p>
+                      </div>
+                    )}
+                    {gptAnalysis.investment_perspective.funding_needs && (
+                      <div className="bg-white rounded-lg p-4 border border-indigo-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">필요 자금</h3>
+                        <p className="text-lg font-semibold text-indigo-600">{gptAnalysis.investment_perspective.funding_needs}</p>
+                      </div>
+                    )}
+                    {gptAnalysis.investment_perspective.investor_fit && (
+                      <div className="bg-white rounded-lg p-4 border border-indigo-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">적합한 투자자</h3>
+                        <p className="text-gray-700">{gptAnalysis.investment_perspective.investor_fit}</p>
+                      </div>
+                    )}
+                  </div>
+                  {gptAnalysis.investment_perspective.key_metrics_for_investors && gptAnalysis.investment_perspective.key_metrics_for_investors.length > 0 && (
+                    <div className="mt-4 bg-white rounded-lg p-4 border border-indigo-200">
+                      <h3 className="font-semibold text-gray-900 mb-2">투자자가 보는 핵심 지표</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {gptAnalysis.investment_perspective.key_metrics_for_investors.map((metric, idx) => (
+                          <span key={idx} className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">
+                            {metric}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 실패 사례 */}
+              {gptAnalysis.failure_cases && gptAnalysis.failure_cases.length > 0 && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span className="mr-2">⚠️</span>
+                    실패 사례와 교훈
+                  </h2>
+                  <div className="space-y-4">
+                    {gptAnalysis.failure_cases.map((failure, idx) => (
+                      <div key={idx} className="bg-white rounded-lg p-6 border border-red-200">
+                        <h3 className="font-semibold text-gray-900 mb-2">{failure.case}</h3>
+                        <p className="text-sm text-gray-700 mb-2">
+                          <span className="font-medium">실패 이유:</span> {failure.failure_reason}
+                        </p>
+                        <div className="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                          <p className="text-sm font-medium text-gray-900">📚 교훈:</p>
+                          <p className="text-sm text-gray-700">{failure.lesson}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 다음 단계 */}
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-2">🎯</span>
+                  다음 단계
+                </h2>
+                <ol className="list-decimal list-inside space-y-3">
+                  {gptAnalysis.next_steps.map((step, idx) => (
+                    <li key={idx} className="text-gray-700 text-lg">{step}</li>
+                  ))}
+                </ol>
+              </div>
+            </>
+          ) : null}
         </div>
       )}
 

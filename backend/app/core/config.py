@@ -30,6 +30,14 @@ class Settings(BaseSettings):
     # 외부 API 설정
     CRUNCHBASE_API_KEY: Optional[str] = None
     LINKEDIN_API_KEY: Optional[str] = None
+    OPENAI_API_KEY: Optional[str] = None
+    
+    # 소셜 미디어 API 설정
+    REDDIT_CLIENT_ID: Optional[str] = None
+    REDDIT_CLIENT_SECRET: Optional[str] = None
+    REDDIT_USER_AGENT: Optional[str] = "PIXI Startup Research Bot"
+    NAVER_CLIENT_ID: Optional[str] = None
+    NAVER_CLIENT_SECRET: Optional[str] = None
     
     # 보안 설정
     SECRET_KEY: str = "your-secret-key-here"

@@ -4,11 +4,20 @@
 
 ## 🚀 핵심 기능
 
+### 지도 탐색 기능
 - **월드 맵 탐색**: 도시/국가별 스타트업 클러스터 히트맵
 - **엔티티 카드**: Startup/Investor/Accelerator/Space/Events 5종 표준화
 - **스마트 필터링**: Domain, Stage, Funding, Hiring 여부
 - **성장 시그널**: 웹트래픽, 깃허브, 채용, PR 등 합성 점수
 - **실시간 비교**: 2~4개 회사 동시 비교 분석
+
+### AI 공동창업자 기능 (aicofounder.com 스타일)
+- **5단계 가이드**: 아이디어 → 조사 → 솔루션 → MVP → 런칭
+- **실제 시장 데이터 연동**: 한국 스타트업 생태계 데이터 기반 경쟁사 분석
+- **비주얼 캔버스**: 프로젝트 개념 시각화 및 정리
+- **프로젝트 메모리**: 로컬 스토리지 기반 대화 기록 및 상태 저장
+- **구조화된 가이드**: AI가 대화를 주도하며 단계별 진행
+- **프로젝트 상태 요약**: 현재까지의 진행 상황을 한눈에 확인
 
 ## 🛠 기술 스택
 
@@ -61,6 +70,7 @@ DATABASE_URL=postgresql://user:password@localhost/pixi_db
 REDIS_URL=redis://localhost:6379
 MAPBOX_ACCESS_TOKEN=your-mapbox-token-here
 SECRET_KEY=your-secret-key-here
+OPENAI_API_KEY=your-openai-api-key-here  # AI 공동창업자 기능용
 ```
 
 ### 2. 데이터베이스 설정
@@ -83,7 +93,11 @@ npm install
 npm run dev
 ```
 
-실행 후 브라우저에서 **http://localhost:3000** 또는 **http://localhost:3000/explore** 로 접속합니다. (다른 주소나 `file://` 로 열면 연결 오류가 날 수 있습니다.)
+실행 후 브라우저에서 접속:
+- **메인 페이지**: http://localhost:3000
+- **지도 탐색**: http://localhost:3000/explore
+- **아이템 발굴**: http://localhost:3000/startup-idea
+- **AI 공동창업자**: http://localhost:3000/cofounder
 
 ### 4. 백엔드 실행
 
@@ -118,8 +132,17 @@ celery -A schedulers.celery_app beat --loglevel=info
 
 ## 🔄 개발 로드맵
 
-- **R0 (2-3주)**: 기본 맵 탐색, 엔티티 카드, 필터링
+### 완료된 기능
+- ✅ 기본 맵 탐색, 엔티티 카드, 필터링
+- ✅ AI 공동창업자 (5단계 가이드)
+- ✅ 비주얼 캔버스
+- ✅ 프로젝트 메모리 시스템
+- ✅ 실제 시장 데이터 연동
+
+### 향후 계획
 - **R1 (3-6주)**: 성장 시그널, 채용 인사이트, 알림 시스템
+- **R2**: 소셜 미디어 조사 통합 (Reddit, 네이버 카페)
+- **R3**: 프로젝트 공유 및 협업 기능
 
 ## 🌐 API 문서
 
