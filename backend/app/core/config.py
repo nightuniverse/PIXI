@@ -31,6 +31,8 @@ class Settings(BaseSettings):
     CRUNCHBASE_API_KEY: Optional[str] = None
     LINKEDIN_API_KEY: Optional[str] = None
     OPENAI_API_KEY: Optional[str] = None
+    ANTHROPIC_API_KEY: Optional[str] = None  # Claude API (우선 사용)
+    ANTHROPIC_MODEL: Optional[str] = None   # 비우면 기본값 사용 (claude-3-5-sonnet-latest 등)
     
     # 소셜 미디어 API 설정
     REDDIT_CLIENT_ID: Optional[str] = None

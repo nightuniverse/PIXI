@@ -1,29 +1,45 @@
 """
 AI 공동창업자 서비스 - 단계별 가이드 제공
+Claude API 우선 사용, 없으면 OpenAI 사용.
 """
 from typing import Dict, Any, List, Optional
 import json
 import os
 import time
 import re
-from openai import OpenAI
 from app.core.config import settings
 from app.schemas.startup_advisor import StartupIdeaRequest
 from app.services.market_research_engine import MarketResearchEngine
-# 소셜 미디어 조사 기능은 제외됨
-# from app.services.social_research_service import SocialResearchService
+
+# Claude 우선, 없으면 OpenAI
+if getattr(settings, "ANTHROPIC_API_KEY", None):
+    from anthropic import Anthropic
+    _anthropic_client = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
+    _openai_client = None
+elif getattr(settings, "OPENAI_API_KEY", None):
+    from openai import OpenAI
+    _openai_client = OpenAI(api_key=settings.OPENAI_API_KEY)
+    _anthropic_client = None
+else:
+    _anthropic_client = None
+    _openai_client = None
+
 
 class CofounderService:
-    """AI 공동창업자 서비스"""
+    """AI 공동창업자 서비스 (Claude 또는 OpenAI)"""
     
     def __init__(self):
-        if not settings.OPENAI_API_KEY:
-            raise ValueError("OPENAI_API_KEY가 설정되지 않았습니다.")
-        self.client = OpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-4o"
+        if _anthropic_client is None and _openai_client is None:
+            raise ValueError(
+                "ANTHROPIC_API_KEY 또는 OPENAI_API_KEY 중 하나를 .env에 설정해주세요."
+            )
+        self.use_claude = _anthropic_client is not None
+        self.anthropic_client = _anthropic_client
+        self.openai_client = _openai_client
+        # Claude: claude-3-5-sonnet-20241022는 2025-10-28 부터 retired → claude-sonnet-4 사용
+        _claude_default = getattr(settings, "ANTHROPIC_MODEL", None) or "claude-sonnet-4-20250514"
+        self.model = _claude_default if self.use_claude else "gpt-4o"
         self.market_research_engine = MarketResearchEngine()
-        # 소셜 미디어 조사 기능은 제외됨
-        # self.social_research = SocialResearchService()
     
     def process_message(
         self,
@@ -94,26 +110,38 @@ class CofounderService:
             message, current_phase, project_state, conversation_history, market_data
         )
         
-        # GPT 호출
+        # LLM 호출 (Claude 우선, 없으면 OpenAI)
         try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                temperature=0.7
-            )
-            
-            if not response.choices or not response.choices[0].message:
-                raise ValueError("GPT 응답이 비어있습니다.")
-            
-            ai_response = response.choices[0].message.content
+            if self.use_claude:
+                response = self.anthropic_client.messages.create(
+                    model=self.model,
+                    max_tokens=2048,
+                    system=system_prompt,
+                    messages=[{"role": "user", "content": user_prompt}],
+                )
+                ai_response = (
+                    response.content[0].text
+                    if response.content and hasattr(response.content[0], "text")
+                    else ""
+                )
+            else:
+                response = self.openai_client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt},
+                    ],
+                    temperature=0.7,
+                )
+                if not response.choices or not response.choices[0].message:
+                    raise ValueError("GPT 응답이 비어있습니다.")
+                ai_response = response.choices[0].message.content or ""
             
             if not ai_response:
-                raise ValueError("GPT 응답 내용이 없습니다.")
+                raise ValueError("AI 응답 내용이 없습니다.")
         except Exception as e:
-            error_msg = f"OpenAI API 호출 실패: {str(e)}"
+            provider = "Claude" if self.use_claude else "OpenAI"
+            error_msg = f"{provider} API 호출 실패: {str(e)}"
             print(f"ERROR: {error_msg}")
             raise Exception(error_msg)
         
@@ -130,9 +158,9 @@ class CofounderService:
                 "actions": []
             }
         
-        # 프로젝트 상태 초기화
+        # 프로젝트 상태 초기화 (채팅에는 [] 표기·Plan 블록·끝의 JSON 제거한 깔끔한 응답만)
         result = {
-            "response": parsed["response"],
+            "response": self._clean_response_for_display(parsed["response"]),
             "next_phase": parsed.get("next_phase"),
             "project_state": parsed.get("project_state", {}),
             "actions": parsed.get("actions", [])
@@ -157,25 +185,36 @@ class CofounderService:
             for doc in result["project_state"]["documents"]:
                 print(f"  - {doc.get('title')} (ID: {doc.get('id')})")
         
-        # 응답에서 추가 문서 추출 (AI가 응답에서 문서를 생성한 경우)
+        # 문서 형태로 정리: Claude가 준 형식(## Plan, ### 섹션, - [ ] 항목) 파싱 후 오른쪽에 반영
         documents = []
-        if current_phase == 'research':
-            # 경쟁사 분석이나 시장 조사 관련 키워드가 있으면 문서 생성
-            research_keywords = ['경쟁사', '시장', '조사', '분석', '비교', '경쟁', '시장 규모']
-            if any(keyword in ai_response for keyword in research_keywords):
-                # 문서 추출 시도
-                doc_hint = self._extract_document_hint(ai_response)
-                if doc_hint:
-                    documents.append(doc_hint)
+        plan_from_response = self._parse_plan_document_format(ai_response, current_phase)
+        if plan_from_response:
+            # Claude가 문서 형식으로 준 경우 → 그대로 Plan 문서로 사용
+            plan_from_response['id'] = 'doc_plan'
+            plan_from_response['x'] = 50
+            plan_from_response['y'] = 50
+            documents.append(plan_from_response)
+        else:
+            # 파싱 실패 시 기존 추출 시도 + 기본 Plan
+            doc_hint = self._extract_document_hint(ai_response)
+            if doc_hint and doc_hint.get('title'):
+                if 'id' not in doc_hint:
+                    doc_hint['id'] = f'doc_{int(time.time() * 1000)}'
+                if 'x' not in doc_hint:
+                    doc_hint['x'] = 50
+                if 'y' not in doc_hint:
+                    doc_hint['y'] = 50
+                documents.append(doc_hint)
+            plan_doc = self._create_default_plan_document(current_phase, ai_response)
+            if plan_doc:
+                documents.append(plan_doc)
         
-        # 문서가 있으면 project_state에 추가
         if documents:
             if "documents" not in result["project_state"]:
                 result["project_state"]["documents"] = []
-            # 중복 제거
-            existing_titles = {doc.get('title') for doc in result["project_state"]["documents"]}
+            existing_ids = {doc.get('id') for doc in result["project_state"]["documents"] if doc.get('id')}
             for doc in documents:
-                if doc.get('title') not in existing_titles:
+                if doc.get('id') not in existing_ids:
                     result["project_state"]["documents"].append(doc)
         
         return result
@@ -262,10 +301,29 @@ class CofounderService:
 4. **실제 데이터 요구**: "시장이 좋아 보인다"가 아닌, 구체적인 숫자와 데이터를 요구하세요
 5. **단계별 진행**: 각 단계가 완료되면 자연스럽게 다음 단계로 넘어가도록 하세요
 
-응답 형식:
-- 자연스러운 대화 형식으로 응답하세요
-- 필요시 JSON 형식으로 구조화된 정보를 포함할 수 있습니다 (예: {{"next_phase": "research", "project_state": {{"problem": "..."}}}})
-- 사용자에게 구체적인 다음 액션을 제시하세요"""
+**답변 톤 (매끄럽게):**
+- 채팅 답변은 **한 문장 한 문장 자연스럽게** 이어지게 쓰세요. 나열체나 딱딱한 목록보다는 말하듯이 풀어서 쓰세요.
+- 필요한 설명은 길게 써도 되지만, 문단 사이 연결을 부드럽게 하세요. ("또한", "그래서", "예를 들어" 등으로 이어주세요.)
+- 질문은 문장 끝까지 자연스럽게 하나씩 던지세요. 여러 질문을 한꺼번에 나열하지 말고, 흐름에 맞게 섞어서 쓰세요.
+
+**필수 응답 형식:**
+1) 먼저 **오른쪽 패널용 요약 블록**을 반드시 넣으세요 (아래 형식). 오른쪽에는 이 요약만 문서로 보입니다.
+2) 그 다음 **채팅 본문**을 매끄럽게 길게 써도 됩니다.
+
+```
+## Plan
+### [섹션명 한 줄. 예: 초기 맥락 수집]
+
+- [ ] 요약용 체크 1 (한 줄, 간결하게)
+- [ ] 요약용 체크 2
+- [ ] 요약용 체크 3
+```
+
+- **요약 블록**: 섹션명 + 체크리스트 3~5개만 **한 줄씩 간결하게**. 오른쪽 패널은 summary 느낌이어야 하므로 본문을 복붙하지 마세요.
+- **채팅 본문**: 위 블록 다음에 이어서 자연스럽게 설명·질문을 풀어쓰세요. **본문에는 절대 `- [ ]` 같은 표기를 쓰지 마세요.** 그건 Plan 블록 안에만 넣고, 본문은 일반 문장으로만 쓰세요.
+- **금지**: 응답 끝에 `project_state`, `next_phase` 같은 JSON을 **사용자에게 노출하지 마세요.** 상태는 우리가 별도로 파싱하므로, 사용자에게 보이는 건 자연어 답변만 있어야 합니다.
+- 섹션명 예: 아이디어→"초기 맥락 수집", 조사→"시장·경쟁사 조사", 솔루션→"솔루션 설계", MVP→"MVP 계획", 런칭→"런칭 준비"
+"""
     
     def _build_user_prompt(
         self,
@@ -320,7 +378,64 @@ class CofounderService:
 {market_data_text}
 
 현재 프로젝트 상태를 업데이트하고, 다음 단계로 진행할 준비가 되었는지 판단해주세요.
-사용자에게 자연스럽고 구체적인 응답을 제공하고, 필요시 다음 단계로 넘어가도록 안내해주세요."""
+**응답 순서:** (1) ## Plan → ### 섹션 → - [ ] 요약용 체크 3~5개 (한 줄씩 간결하게) (2) 그 다음 채팅 본문을 자연스럽게, 매끄럽게 이어서 작성하세요. 본문은 길어도 됩니다."""
+    
+    def _clean_response_for_display(self, text: str) -> str:
+        """채팅에 보여줄 때 불필요한 부분 제거: 끝의 project_state JSON, 앞쪽 Plan 블록(## Plan, - [ ])."""
+        if not text or not text.strip():
+            return text
+        s = text.strip()
+        # 1) 끝에 있는 project_state / next_phase JSON 제거 (중첩 괄호 허용)
+        while True:
+            last_brace = s.rfind('{')
+            if last_brace < 0:
+                break
+            depth = 0
+            end = -1
+            for i in range(last_brace, len(s)):
+                if s[i] == '{':
+                    depth += 1
+                elif s[i] == '}':
+                    depth -= 1
+                    if depth == 0:
+                        end = i
+                        break
+            if end < 0:
+                break
+            try:
+                obj = json.loads(s[last_brace:end + 1])
+                if isinstance(obj, dict) and ("project_state" in obj or "next_phase" in obj):
+                    s = s[:last_brace].rstrip()
+                    continue
+            except json.JSONDecodeError:
+                pass
+            break
+        # 2) 앞쪽 ## Plan ... 블록 제거 (채팅에는 본문만 보이게)
+        lines = s.split('\n')
+        start = 0
+        in_plan = False
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+            if re.match(r'^#+\s*Plan\s*$', stripped, re.IGNORECASE):
+                in_plan = True
+                start = i + 1
+                continue
+            if in_plan and re.match(r'^###\s+', stripped):
+                start = i + 1
+                continue
+            if in_plan and (stripped.startswith('- [ ]') or stripped.startswith('- [x]')):
+                start = i + 1
+                continue
+            if in_plan and stripped.startswith('- ') and ('[ ]' in stripped or '[x]' in stripped):
+                start = i + 1
+                continue
+            if in_plan and stripped:
+                start = i
+                break
+            if not in_plan and stripped:
+                break
+        s = '\n'.join(lines[start:]).strip()
+        return s or text.strip()
     
     def _parse_response(
         self,
@@ -788,3 +903,166 @@ class CofounderService:
             }
         
         return None
+    
+    def _parse_plan_document_format(self, response: str, current_phase: str) -> Optional[Dict[str, Any]]:
+        """
+        Claude가 준 고정 형식(## Plan, ### 섹션, - [ ] 항목)을 파싱해 문서로 만듦.
+        문서 형태로 쭉 정리되도록 할 때 사용.
+        """
+        if not response or len(response.strip()) < 10:
+            return None
+        # ``` ... ## Plan ... ``` 블록만 추출하거나, 아니면 전체에서 ## Plan 위치부터 파싱
+        text = response.strip()
+        if '```' in text:
+            for part in re.split(r'```\w*\n?', text):
+                if '## Plan' in part or '# Plan' in part:
+                    text = part
+                    break
+        idx = text.find('## Plan')
+        if idx < 0:
+            idx = text.find('# Plan')
+        if idx >= 0:
+            text = text[idx:]
+        lines = text.split('\n')
+        title = None
+        section = None
+        checklist = []
+        content_lines = []
+        in_plan = False
+        in_checklist = False
+        phase_section_names = {
+            'idea': '초기 맥락 수집',
+            'research': '시장·경쟁사 조사',
+            'solution': '솔루션 설계',
+            'mvp': 'MVP 계획',
+            'launch': '런칭 준비',
+        }
+        default_section = phase_section_names.get(current_phase, '진행 상황')
+        for i, line in enumerate(lines):
+            s = line.strip()
+            if re.match(r'^#+\s*Plan\s*$', s, re.IGNORECASE):
+                title = 'Plan'
+                in_plan = True
+                in_checklist = False
+                continue
+            if in_plan and re.match(r'^###\s+.+', s):
+                section = re.sub(r'^###\s+', '', s).strip()
+                in_checklist = True
+                continue
+            if in_plan and in_checklist and (s.startswith('- ') or s.startswith('* ') or re.match(r'^\d+[.)]\s+', s)):
+                item_text = s
+                for prefix in ('- [ ] ', '- [x] ', '- ', '* ', '• '):
+                    if item_text.lower().startswith(prefix):
+                        item_text = item_text[len(prefix):].strip()
+                        break
+                if re.match(r'^\d+[.)]\s+', item_text):
+                    item_text = re.sub(r'^\d+[.)]\s+', '', item_text).strip()
+                if item_text and len(item_text) < 200:
+                    checklist.append({
+                        'id': f'item_{len(checklist)}',
+                        'text': item_text,
+                        'checked': '[x]' in line.lower() or '✔' in line or '✓' in line,
+                    })
+                continue
+            if in_plan and in_checklist and s.startswith('```'):
+                break
+            if in_plan and section and s and not s.startswith('#'):
+                if not s.startswith('- ') and not s.startswith('* ') and not re.match(r'^\d+[.)]\s+', s):
+                    content_lines.append(s)
+        if not title:
+            if '## Plan' in response or '# Plan' in response:
+                title = 'Plan'
+            else:
+                return None
+        if not section:
+            section = default_section
+        # 오른쪽 패널은 summary 느낌: 본문 전체가 아니라 한두 문장 요약만
+        raw = '\n'.join(content_lines).strip()
+        if raw:
+            # 첫 1~2문장 또는 180자까지만 사용
+            for sep in ('。', '. ', '.\n', '! ', '? ', '\n\n'):
+                parts = raw.split(sep, 2)
+                if len(parts) >= 2:
+                    summary = (parts[0] + (sep.strip() or sep[:1])).strip()
+                    if len(summary) <= 200:
+                        raw = summary
+                    break
+            content = raw[:180].rstrip() + ('…' if len(raw) > 180 else '')
+        else:
+            # Plan 블록 뒤 본문 시작 부분에서 한 줄만
+            rest = response.split('# Plan')[-1].split('###')[-1].strip()
+            for line in rest.split('\n'):
+                line = line.strip()
+                if line and not line.startswith('- ') and not line.startswith('* ') and not re.match(r'^#+\s', line) and not line.startswith('```'):
+                    content = line[:180] + ('…' if len(line) > 180 else '')
+                    break
+            else:
+                content = ''
+        return {
+            'title': title or 'Plan',
+            'section': section,
+            'checklist': checklist if checklist else [
+                {'id': 'item_0', 'text': '현재 단계 진행 중', 'checked': False},
+            ],
+            'content': content,
+        }
+    
+    def _create_default_plan_document(self, current_phase: str, ai_response: str) -> Optional[Dict[str, Any]]:
+        """오른쪽 패널용 기본 Plan 문서 (업무 정리). Plan / 초기 맥락 수집 + 체크리스트."""
+        phase_plans = {
+            'idea': {
+                'title': 'Plan',
+                'section': '초기 맥락 수집',
+                'checklist': [
+                    {'id': 'item_1', 'text': '구체적인 적용 분야와 타겟 시장 파악', 'checked': False},
+                    {'id': 'item_2', 'text': '창업자 배경 및 보유 자원 파악', 'checked': False},
+                    {'id': 'item_3', 'text': '프로젝트 범위 및 계획 수립', 'checked': False},
+                ]
+            },
+            'research': {
+                'title': 'Plan',
+                'section': '시장·경쟁사 조사',
+                'checklist': [
+                    {'id': 'item_1', 'text': '경쟁사 및 시장 데이터 수집', 'checked': False},
+                    {'id': 'item_2', 'text': '강점/약점 및 차별화 포인트 도출', 'checked': False},
+                    {'id': 'item_3', 'text': '사용자 니즈 검증', 'checked': False},
+                ]
+            },
+            'solution': {
+                'title': 'Plan',
+                'section': '솔루션 설계',
+                'checklist': [
+                    {'id': 'item_1', 'text': '핵심 기능 정의', 'checked': False},
+                    {'id': 'item_2', 'text': '비즈니스 모델 정리', 'checked': False},
+                    {'id': 'item_3', 'text': '기술 스택 및 구현 방향 수립', 'checked': False},
+                ]
+            },
+            'mvp': {
+                'title': 'Plan',
+                'section': 'MVP 계획',
+                'checklist': [
+                    {'id': 'item_1', 'text': 'MVP 기능 범위 확정', 'checked': False},
+                    {'id': 'item_2', 'text': '개발 우선순위 설정', 'checked': False},
+                    {'id': 'item_3', 'text': '첫 사용자 확보 전략 수립', 'checked': False},
+                ]
+            },
+            'launch': {
+                'title': 'Plan',
+                'section': '런칭 준비',
+                'checklist': [
+                    {'id': 'item_1', 'text': '런칭 체크리스트 완료', 'checked': False},
+                    {'id': 'item_2', 'text': '초기 마케팅 실행', 'checked': False},
+                    {'id': 'item_3', 'text': '성장 지표 설정 및 모니터링', 'checked': False},
+                ]
+            },
+        }
+        plan = phase_plans.get(current_phase, phase_plans['idea'])
+        return {
+            'id': 'doc_plan',  # 고정 ID로 같은 Plan 카드 업데이트
+            'title': plan['title'],
+            'section': plan['section'],
+            'checklist': plan['checklist'],
+            'content': ai_response[:400] + ('…' if len(ai_response) > 400 else ''),
+            'x': 50,
+            'y': 50
+        }

@@ -24,6 +24,8 @@ class MarketResearchEngine:
     def __init__(self):
         if settings.OPENAI_API_KEY:
             self.client = OpenAI(api_key=settings.OPENAI_API_KEY)
+        else:
+            self.client = None  # Claude만 사용 시 GPT 호출 스킵
         self.model = "gpt-4o"
     
     def research_market(

@@ -12,7 +12,7 @@ export default function CofounderPage() {
       
       {/* 헤더 */}
       <header className="relative z-10 border-b border-gray-200 bg-white/80 backdrop-blur-sm sticky top-0">
-        <div className="max-w-7xl mx-auto px-8 py-4">
+        <div className="w-full max-w-[100vw] px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
@@ -45,7 +45,7 @@ export default function CofounderPage() {
         </div>
       </header>
       
-      <main className="relative z-10 max-w-5xl mx-auto px-8 py-8">
+      <main className="relative z-10 w-full min-w-0">
         <AICofounderChat />
       </main>
     </div>

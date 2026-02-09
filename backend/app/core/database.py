@@ -1,32 +1,36 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from fastapi import HTTPException
 from app.core.config import settings
 
-# 데이터베이스 URL 생성
-SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
-
-# 엔진 생성
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,
-    pool_pre_ping=True,
-    pool_recycle=300,
-)
-
-# 세션 팩토리 생성
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-# 베이스 클래스
 Base = declarative_base()
+engine = None
+SessionLocal = None
 
-# 데이터베이스 세션 의존성
+try:
+    SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
+    engine = create_engine(
+        SQLALCHEMY_DATABASE_URL,
+        pool_pre_ping=True,
+        pool_recycle=300,
+    )
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+except Exception as e:
+    import warnings
+    warnings.warn(f"DB 미연결 상태로 실행됩니다 (cofounder 등은 동작): {e}")
+    engine = None
+    SessionLocal = None
+
 def get_db():
+    if SessionLocal is None:
+        raise HTTPException(status_code=503, detail="Database not configured. Set DATABASE_URL or install psycopg2-binary.")
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
 
-# 데이터베이스 초기화
 def init_db():
-    Base.metadata.create_all(bind=engine)
+    if engine is not None:
+        Base.metadata.create_all(bind=engine)

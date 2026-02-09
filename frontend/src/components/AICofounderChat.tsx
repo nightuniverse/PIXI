@@ -321,13 +321,14 @@ export default function AICofounderChat() {
         
         setProjectState(prev => ({ ...prev, ...restState }))
         
-        // 백엔드에서 생성된 문서가 있으면 사용
+        // 백엔드에서 생성된 문서가 있으면 사용 (같은 id면 업데이트, 없으면 추가)
         if (stateDocuments && Array.isArray(stateDocuments) && stateDocuments.length > 0) {
           setDocuments(prev => {
-            // 기존 문서와 병합 (중복 제거)
-            const existingIds = new Set(prev.map(d => d.id))
-            const newDocs = stateDocuments.filter((doc: DocumentCardData) => !existingIds.has(doc.id))
-            return [...prev, ...newDocs]
+            const byId = new Map(prev.map(d => [d.id, d]))
+            stateDocuments.forEach((doc: DocumentCardData) => {
+              byId.set(doc.id, { ...byId.get(doc.id), ...doc })
+            })
+            return Array.from(byId.values())
           })
         }
       }
@@ -474,9 +475,9 @@ export default function AICofounderChat() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-180px)] bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm relative">
-      {/* 헤더 - Figma 스타일 */}
-      <div className="px-6 py-4 border-b border-gray-200 bg-white">
+    <div className="flex flex-col w-full min-w-0 h-[calc(100vh-65px)] bg-white rounded-none border-0 border-b border-gray-200 overflow-hidden relative">
+      {/* 헤더 - 전체 너비 */}
+      <div className="flex-shrink-0 w-full px-4 sm:px-6 py-3 border-b border-gray-200 bg-white">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-md bg-gray-900 flex items-center justify-center">
@@ -563,33 +564,13 @@ export default function AICofounderChat() {
         </div>
       </div>
 
-      {/* 왼쪽 패널 - 채팅 */}
-      <div className="flex flex-col w-1/3 border-r border-gray-200 bg-[#faf9f7]">
-        {/* 채팅 헤더 */}
-        <div className="px-4 py-3 border-b border-gray-200 bg-white flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <button className="p-1.5 rounded-md hover:bg-gray-100">
-              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            <button className="p-1.5 rounded-md hover:bg-gray-100">
-              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              </svg>
-            </button>
+      {/* 본문: 왼쪽 채팅 목록 | 오른쪽 문서 (채팅이 왼쪽 빈 자리를 쓰고, 나머지는 문서) */}
+      <div className="flex flex-1 min-h-0 w-full">
+        {/* 왼쪽 - 채팅 목록 (너비 넉넉히, 오류/긴 메시지도 보기 편하게) */}
+        <div className="flex flex-col w-[560px] min-w-[420px] max-w-[50vw] flex-shrink-0 border-r border-gray-200 bg-[#faf9f7]">
+          <div className="flex-shrink-0 px-3 py-2 border-b border-gray-200 bg-white">
+            <span className="text-xs font-medium text-gray-500">채팅</span>
           </div>
-          <div className="flex items-center gap-1">
-            <button className="p-1.5 rounded-md hover:bg-gray-100">
-              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-              </svg>
-            </button>
-            <button className="p-1.5 rounded-md hover:bg-gray-100">
-              <XMarkIcon className="w-4 h-4 text-gray-600" />
-            </button>
-          </div>
-        </div>
 
         {/* 메시지 영역 */}
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
@@ -607,7 +588,7 @@ export default function AICofounderChat() {
               </div>
             )}
             
-            <div className={`max-w-2xl rounded-lg px-4 py-3 ${
+            <div className={`max-w-full rounded-lg px-3 py-2 ${
               message.role === 'user'
                 ? 'bg-gray-900 text-white'
                 : 'bg-gray-50 text-gray-900 border border-gray-200'
@@ -738,14 +719,15 @@ export default function AICofounderChat() {
         </div>
       </div>
 
-      {/* 오른쪽 패널 - 문서 캔버스 */}
-      <div className="flex-1 relative">
-        <DocumentCanvas
-          documents={documents}
-          onUpdateDocument={handleUpdateDocument}
-          onDeleteDocument={handleDeleteDocument}
-          onCheckItem={handleCheckItem}
-        />
+        {/* 오른쪽 - 문서가 적히는 공간 (남는 너비 전부 사용) */}
+        <div className="flex-1 min-w-0 relative bg-[#faf9f7]">
+          <DocumentCanvas
+            documents={documents}
+            onUpdateDocument={handleUpdateDocument}
+            onDeleteDocument={handleDeleteDocument}
+            onCheckItem={handleCheckItem}
+          />
+        </div>
       </div>
 
       {/* 프로젝트 캔버스 (기존 기능 유지) */}
